@@ -1,34 +1,23 @@
 // Fill the DB with example data on startup
 
 import { Meteor } from 'meteor/meteor';
-import { Links } from '../../api/links/links.js';
+import { Discussions } from '../../api/discussions/discussions.js';
 
 Meteor.startup(() => {
   // if the Links collection is empty
-  if (Links.find().count() === 0) {
-    const data = [
-      {
-        title: 'Do the Tutorial',
-        url: 'https://www.meteor.com/try',
-        createdAt: new Date(),
-      },
-      {
-        title: 'Follow the Guide',
-        url: 'http://guide.meteor.com',
-        createdAt: new Date(),
-      },
-      {
-        title: 'Read the Docs',
-        url: 'https://docs.meteor.com',
-        createdAt: new Date(),
-      },
-      {
-        title: 'Discussions',
-        url: 'https://forums.meteor.com',
-        createdAt: new Date(),
-      },
-    ];
+  if (Discussions.find().count() === 0) {
 
-    data.forEach(link => Links.insert(link));
+    console.log("Discussions is empty!")
+
+    Discussions.insert({      
+      titleOfDiscussion : "les chiens",
+      talkerName : "Bob",
+      listenerName : "Alice",
+      talkerColor : "#f7ba62",
+      listenerColor : "#da735b",
+      date : new Date(),
+      place : "Bruxelles"
+})
+
   }
 });
