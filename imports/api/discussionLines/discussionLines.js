@@ -15,6 +15,9 @@ export const DiscussionLinesSchema = new SimpleSchema({
 	},			
 	imgId : {
 		type : Number,
+	},		
+	lineIndex : {
+		type : Number,
 	},	
 })
 

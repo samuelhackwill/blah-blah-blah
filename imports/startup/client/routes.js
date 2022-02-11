@@ -1,5 +1,6 @@
 import { FlowRouter } from 'meteor/ostrio:flow-router-extra';
 import { Discussions } from '../../api/discussions/discussions.js';
+import { DiscussionLines } from '../../api/discussionLines/discussionLines.js';
 
 import '../../ui/layouts/body/body.js';
 import '../../ui/pages/home/home.js';
@@ -25,15 +26,22 @@ FlowRouter.route('/', {
 
 FlowRouter.route('/read/:titleOfDiscussion', {
   name: 'read',
-  action(params) {
-    // when someone randomly stumbles upon this website we 
-    // want to get a random discussion from the DB and show it
-    // to that person.
 
-    console.log(params)
-    // this.render('App_body', 'App_home');
+  action(params, qs, discussion) {
+    this.render('App_body', 'tester', { discussion });
   },
-});
+
+  data() {
+    return DiscussionLines.find({});
+  },
+
+  waitOn(params) {
+    return [
+      Meteor.subscribe('discussionLines.one', params.titleOfDiscussion)
+    ];
+  }
+
+  });
 
 FlowRouter.route('/edit/:titleOfDiscussion', {
   name: 'edit',
@@ -49,6 +57,13 @@ FlowRouter.route('/new', {
     this.render('App_body', 'App_home');
   },
 });
+
+FlowRouter.route('/admin', {
+  name: 'admin',
+  action(){
+    this.render('App_body', 'App_home');
+  }
+})
 
 FlowRouter.route('*', {
   action() {
