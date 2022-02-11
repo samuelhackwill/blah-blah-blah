@@ -1,12 +1,13 @@
 <template name="tester">
   <p>{{getLine}}</p>
 
-<!--   this here is a jolly good hack to enable events on the whole page.
+ 
+  <input type="text" class="eventCatcher">
+<!--   
+  this here is a jolly good hack to enable events on the whole page.
   (we want to register when a keystrooke is pressed at any time, 
   whichever the focus)
 
   see https://github.com/meteor/blaze/issues/214
  -->
- 
-  <input type="text" class="eventCatcher">
 </template>

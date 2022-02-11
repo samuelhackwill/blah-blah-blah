@@ -5,6 +5,7 @@ import { DiscussionLines } from '../../api/discussionLines/discussionLines.js';
 import '../../ui/layouts/body/body.js';
 import '../../ui/pages/home/home.js';
 import '../../ui/pages/new/new.js';
+import '../../ui/pages/edit/edit.js';
 import '../../ui/pages/not-found/not-found.js';
 
 FlowRouter.route('/', {
@@ -46,10 +47,22 @@ FlowRouter.route('/read/:titleOfDiscussion', {
 
 FlowRouter.route('/edit/:titleOfDiscussion', {
   name: 'edit',
-  action(params) {
-    console.log(params)
-    // this.render('App_body', 'App_home');
+  action(params, qs, discussion) {
+    this.render('App_body', 'edit', { discussion });
   },
+
+  data() {
+    return [
+    DiscussionLines.find({}), Discussions.find({})
+    ];
+  },
+
+  waitOn(params) {
+    return [
+      Meteor.subscribe('discussionLines.one', params.titleOfDiscussion),
+      Meteor.subscribe('discussions.one', params.titleOfDiscussion)
+    ];
+  }
 });
 
 FlowRouter.route('/new', {

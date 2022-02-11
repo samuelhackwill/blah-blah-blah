@@ -1,0 +1,22 @@
+<template name="conversationEditor">
+	<div class="conversationEditorContainer">
+
+<!-- 		we're going to use helpers here to make this component
+		reusable. Either load it with data or, if there's no data,
+		maybe initiate an empty local collection and clone it
+		during insert at the end?
+ -->
+
+ 		{{#if data}}
+ 			<p> there is data! </p>
+ 		{{else}}
+ 			<p> there is no data! </p>
+ 		{{/if}}
+
+
+		<div class="oneLineOfText">
+						
+		</div>
+
+	</div>
+</template>

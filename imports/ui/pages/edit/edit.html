@@ -1,0 +1,24 @@
+<template name="edit">
+  <div id="editBody">
+
+    <h1 class="pageTitle">Modifier une conversation</h1>
+
+    <div class="editBodyContainer">
+      
+      {{>conversationParams discussionData}}
+
+      {{>conversationEditor discussionLinesData}}
+      <!--
+      component : conversationParams
+  
+      component : conversationEditor
+
+      component : conversationSaver
+      -->
+
+
+    </div>
+
+  </div>
+
+</template>
