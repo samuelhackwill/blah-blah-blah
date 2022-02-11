@@ -28,6 +28,12 @@ const lesChiens = [
 {peep:"Bob", lineContent:"hé ben ça a l'air super."}
 ]
 
+const test = [
+{peep:"TEST", lineContent:"DATA IS LOADED"},
+{peep:"TEST", lineContent:"TEST OK."}
+]
+
+
 Meteor.startup(() => {
   // if the Links collection is empty
   if (Discussions.find().count() === 0) {
@@ -58,6 +64,16 @@ Meteor.startup(() => {
         lineContent : lesChiens[i].lineContent,
         imgId : 1,
         lineIndex : i+1
+      })
+    }
+
+    for (var z = 0; z < test.length; z++) {
+      DiscussionLines.insert({      
+        belongsToDiscussionNamed : "TEST",
+        peepName : test[z].peep,
+        lineContent : test[z].lineContent,
+        imgId : 1,
+        lineIndex : z+1
       })
     }
   }
