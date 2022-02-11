@@ -1,0 +1,8 @@
+.newBodyContainer{
+	border: solid 1px black;
+}
+
+.pageTitle{
+	margin-left: 50%;
+	transform: translateX(-25%);
+}

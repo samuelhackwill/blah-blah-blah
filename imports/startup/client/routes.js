@@ -4,6 +4,7 @@ import { DiscussionLines } from '../../api/discussionLines/discussionLines.js';
 
 import '../../ui/layouts/body/body.js';
 import '../../ui/pages/home/home.js';
+import '../../ui/pages/new/new.js';
 import '../../ui/pages/not-found/not-found.js';
 
 FlowRouter.route('/', {
@@ -28,7 +29,7 @@ FlowRouter.route('/read/:titleOfDiscussion', {
   name: 'read',
 
   action(params, qs, discussion) {
-    this.render('App_body', 'tester', { discussion });
+    this.render('App_body', 'App_home', { discussion });
   },
 
   data() {
@@ -54,7 +55,7 @@ FlowRouter.route('/edit/:titleOfDiscussion', {
 FlowRouter.route('/new', {
   name: 'new',
   action() {
-    this.render('App_body', 'App_home');
+    this.render('App_body', 'new');
   },
 });
 

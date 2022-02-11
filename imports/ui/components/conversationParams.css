@@ -1,0 +1,57 @@
+.pageTitle{
+	margin-bottom: 40px;
+}
+
+.conversationParamsContainer{
+	width: 100%;
+	display: flex;
+	font-size: xx-large;
+	background-color: beige;
+}
+
+.conversationParamsContainer::before {
+	content: "Paramètres généraux";
+	position: absolute;
+	transform: translateY(-100%);
+	border: solid 1px black;
+	border-radius: 10px 10px 0px 0px;
+	background-color: beige;
+
+	padding: 4px;
+}
+
+.conversationParamsContainerColumn{
+	width: 50%;
+}
+
+.inputBlock{
+	display: flex;
+	padding: 5px;
+}
+
+.inputBlock>input{
+	margin-left: 1%;
+	flex-grow: 1;
+}
+
+.inputBlock>span{
+	flex-grow: 0;
+	align-self: center;
+}
+
+.colorPicker{
+	align-self: center;
+	border: solid 1px blue;
+	margin-left: 1%;
+	border-radius: 100px;
+	background-color: blue;
+	color: blue;
+	cursor: pointer;
+}
+
+.conversationParamsFooter{
+	padding: 15px;
+	font-size: medium;
+	color: gray;
+	background-color: beige;
+}
