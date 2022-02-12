@@ -42,8 +42,12 @@
 	align-self: center;
 	margin-left: 1%;
 	border-radius: 100px;
-	color: blue;
+	color: #fff0;
 	cursor: pointer;
+}
+
+.colorPicker::selection{
+	background-color: #fff0;
 }
 
 .conversationParamsFooter{
