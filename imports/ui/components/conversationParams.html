@@ -4,34 +4,20 @@
 		<div class="conversationParamsContainerColumn">
 			
 			<div class="inputBlock">
-				<span> Nom de la personne participée :</span>
+				<span> Parlant : </span>
 
-				{{#if discussionData}}
-					{{#each discussionData}}	
-						<input type="text" name="name1" value="{{talkerName}}">
-						<div class="colorPicker" id="colorPicker1" style="background-color:{{talkerColor}};">X</div>
-					{{/each}}
-				{{else}}
-						<input type="text" name="name1" value="">
-						<div class="colorPicker" id="colorPicker1" style="background-color:
-						{{randomHex}};">X</div>
-				{{/if}}
+					<input type="text" name="name1" value="{{_talkerName}}">
+					<div class="colorPicker" id="colorPicker1" style="background-color:{{_talkerColor}};">X</div>
 
 			</div>
 
 			<div class="inputBlock">
-				<span> Nom de la personne alliée (celle qui parle moins) :</span>
+				<span> Écoutant :</span>
 
-				{{#if discussionData}}
-					{{#each discussionData}}	
-						<input type="text" name="name2" value="{{listenerName}}">
-						<div class="colorPicker" id="colorPicker2" style="background-color:{{listenerColor}};">X</div>
-					{{/each}}
-				{{else}}
-					<input type="text" name="name2" value="">
-					<div class="colorPicker" id="colorPicker2" style="background-color:
-					{{randomHex}};">X</div>
-				{{/if}}			</div>
+					<input type="text" name="name2" value="{{_listenerName}}">
+					<div class="colorPicker" id="colorPicker2" style="background-color:{{_listenerColor}};">X</div>
+		
+			</div>
 
 		</div>		
 
@@ -45,7 +31,7 @@
 					{{/each}}
 				{{else}}
 						<span> Date :</span>
-						<input type="text" name="date">
+						<input type="text" name="date" placeholder="Jeudi 25 Février 2027">
 				{{/if}}	
 			</div>
 
@@ -55,6 +41,9 @@
 						<span> Lieu :</span>
 						<input type="text" name="place" value="{{place}}">
 					{{/each}}
+				{{else}}
+						<span> Lieu :</span>
+						<input type="text" name="place" placeholder="Montréal">
 				{{/if}}
 			</div>
 

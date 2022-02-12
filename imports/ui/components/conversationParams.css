@@ -5,7 +5,7 @@
 .conversationParamsContainer{
 	width: 100%;
 	display: flex;
-	font-size: xx-large;
+	font-size: large;
 	background-color: beige;
 }
 
@@ -15,7 +15,9 @@
 	transform: translateY(-100%);
 	border-radius: 10px 10px 0px 0px;
 	background-color: beige;
-
+	margin-left: 15px;
+	font-size: small;
+	font-variant: all-small-caps;
 	padding: 4px;
 }
 
@@ -31,6 +33,12 @@
 .inputBlock>input{
 	margin-left: 1%;
 	flex-grow: 1;
+	font-family: PicNic;
+	font-size: x-large;
+}
+
+.inputBlock>input::placeholder{
+	color: #b3b3b3;
 }
 
 .inputBlock>span{
@@ -44,6 +52,8 @@
 	border-radius: 100px;
 	color: #fff0;
 	cursor: pointer;
+	border: 1px solid black;
+	font-size: xx-large;
 }
 
 .colorPicker::selection{
@@ -52,7 +62,7 @@
 
 .conversationParamsFooter{
 	padding: 15px;
-	font-size: medium;
+	font-size: small;
 	color: gray;
 	background-color: beige;
 }

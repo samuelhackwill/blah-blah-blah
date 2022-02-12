@@ -2,6 +2,7 @@
 }
 
 .pageTitle{
+	font-family: PicNic;
 	margin-left: 50%;
 	transform: translateX(-25%);
 }

@@ -20,7 +20,7 @@ export const DiscussionsSchema = new SimpleSchema({
 		type : String,
 	},
 	date : {
-		type : Date,
+		type : String,
 	},
 	place : {
 		type : String,

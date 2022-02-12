@@ -1,0 +1,9 @@
+ @font-face {
+  font-family: PicNic;
+  src: url(/fonts/PicNic-Regular.woff);
+} 
+
+html{
+	font-family: sans-serif;
+    background-color: #fff3f3;
+}

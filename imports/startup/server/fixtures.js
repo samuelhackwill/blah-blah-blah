@@ -28,9 +28,14 @@ const lesChiens = [
 {peep:"Bob", lineContent:"hé ben ça a l'air super."}
 ]
 
+
 Meteor.startup(() => {
   // if the Links collection is empty
   if (Discussions.find().count() === 0) {
+
+    theDate = new Date()
+    options = {weekday : 'long', year: 'numeric', month: 'long', day: 'numeric'}
+    theDate = theDate.toLocaleDateString('fr-FR', options)
 
     console.log("Discussions is empty!")
 
@@ -40,7 +45,7 @@ Meteor.startup(() => {
       listenerName : "Alice",
       talkerColor : "#f7ba62",
       listenerColor : "#da735b",
-      date : new Date(),
+      date : theDate,
       place : "Bruxelles"
     })
 
