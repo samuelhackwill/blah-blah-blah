@@ -10,7 +10,6 @@
 }
 
 .talkerSpeechLineContainer > div{
-	height: 200px;
 	border: solid 1px black;
 }
 
@@ -21,13 +20,13 @@
 .speechBalloonContainer{
 	width: 50%;
 	display: flex;
+	margin-top: 20px;
 }
 
 .speechBalloonLabel{
 	padding: 5px;
 	position: absolute;
-	left: 25%;
-	transform: translate(50%, 0%);
+	left: 28%;
 	margin-left: 10px;
 	border-radius: 4px 4px 0px 0px;
 	border-top:    1px solid  black;
