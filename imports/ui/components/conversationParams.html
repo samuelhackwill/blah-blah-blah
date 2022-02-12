@@ -5,28 +5,57 @@
 			
 			<div class="inputBlock">
 				<span> Nom de la personne participée :</span>
-				<input type="text" name="name1">
-				<div class="colorPicker" id="colorPicker1">X</div>
+
+				{{#if discussionData}}
+					{{#each discussionData}}	
+						<input type="text" name="name1" value="{{talkerName}}">
+						<div class="colorPicker" id="colorPicker1" style="background-color:{{talkerColor}};">X</div>
+					{{/each}}
+				{{else}}
+						<input type="text" name="name1" value="">
+						<div class="colorPicker" id="colorPicker1" style="background-color:
+						{{randomHex}};">X</div>
+				{{/if}}
+
 			</div>
 
 			<div class="inputBlock">
 				<span> Nom de la personne alliée (celle qui parle moins) :</span>
-				<input type="text" name="name2">
-				<div class="colorPicker" id="colorPicker2">X</div>
-			</div>
+
+				{{#if discussionData}}
+					{{#each discussionData}}	
+						<input type="text" name="name2" value="{{listenerName}}">
+						<div class="colorPicker" id="colorPicker2" style="background-color:{{listenerColor}};">X</div>
+					{{/each}}
+				{{else}}
+					<input type="text" name="name2" value="">
+					<div class="colorPicker" id="colorPicker2" style="background-color:
+					{{randomHex}};">X</div>
+				{{/if}}			</div>
 
 		</div>		
 
 		<div class="conversationParamsContainerColumn">
 		
 			<div class="inputBlock">
-				<span> Date :</span>
-				<input type="text" name="name1">
+				{{#if discussionData}}
+					{{#each discussionData}}	
+						<span> Date :</span>
+						<input type="text" name="date" value="{{date}}">
+					{{/each}}
+				{{else}}
+						<span> Date :</span>
+						<input type="text" name="date">
+				{{/if}}	
 			</div>
 
 			<div class="inputBlock">
-				<span> Lieu :</span>
-				<input type="text" name="name2">
+				{{#if discussionData}}
+					{{#each discussionData}}	
+						<span> Lieu :</span>
+						<input type="text" name="place" value="{{place}}">
+					{{/each}}
+				{{/if}}
 			</div>
 
 		</div>

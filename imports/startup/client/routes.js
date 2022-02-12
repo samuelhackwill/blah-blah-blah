@@ -52,9 +52,9 @@ FlowRouter.route('/edit/:titleOfDiscussion', {
   },
 
   data() {
-    return [
-    DiscussionLines.find({}), Discussions.find({})
-    ];
+    return { 
+    discussionLines : DiscussionLines.find({}).fetch(), discussionParams : Discussions.find({}).fetch()
+    };
   },
 
   waitOn(params) {

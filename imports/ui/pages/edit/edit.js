@@ -9,20 +9,19 @@ import { Discussions } from '../../../api/discussions/discussions.js';
 import { DiscussionLines } from '../../../api/discussionLines/discussionLines.js';
 
 Template.edit.onCreated(function(){
-	console.log(this.data.discussion[0].fetch())
-	console.log(this.data.discussion[1].fetch())
+	// console.log(this)
 })
 
 Template.edit.helpers({
 	discussionData(){
 		return{
-			discussionData:Discussions.find({})
+			discussionData:Discussions.find({}).fetch()
 		}
 	},	
 
 	discussionLinesData(){
 		return{
-			discussionLinesData:DiscussionLines.find({})
+			discussionLinesData:DiscussionLines.find({}).fetch()
 		}
 	}
 })
