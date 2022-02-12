@@ -21,7 +21,7 @@ Template.edit.onCreated(function(){
 	this.listenerName = new ReactiveVar(Discussions.find({}).fetch()[0].listenerName);
 
 	this.talkerColor = new ReactiveVar(Discussions.find({}).fetch()[0].talkerColor)
-	this.listenerColor = new ReactiveVar(Discussions.find({}).fetch()[0].talkerColor)
+	this.listenerColor = new ReactiveVar(Discussions.find({}).fetch()[0].listenerColor)
 })
 
 Template.edit.helpers({
@@ -66,7 +66,7 @@ Template.edit.events({
 		Template.instance()[_target].set(allCssNamedColors[randomNmbr])
 
 	},
-	
+
 	"keyup .nameForm":function(e){
 
 		if (e.target.name == "name1") {

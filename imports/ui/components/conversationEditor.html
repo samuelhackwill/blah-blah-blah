@@ -8,18 +8,42 @@
  -->
 
  		{{#if discussionLinesData}}
- 			<p> there is data! </p>
+ 			{{#each discussionLinesData}}
+		 		<div class="talkerSpeechLineContainer">
+		 			<div class="talkerSPeechLinePlaceholder">
+		 			</div>
+		 			
+		 			<div class="speechBalloonContainer">
+		 				<div class="speechBalloonLabel" style="background-color: 
+		 				{{getRelevantPeepColor}}"> 
+		 					<span style="color: {{getRelevantPeepColor}}"> {{getRelevantPeep}} </span> 
+		 				</div>
+						<textarea oninput='this.style.height = ""; this.style.height = this.scrollHeight - 20 + "px";' class="speechBalloon" type="textArea" value="{{lineContent}}" maxlength="250"></textarea>
+		 			</div>
+
+		 			<div class="drawingPreview">
+		 				<img src="/img/test.png">
+		 			</div>
+		 	
+		 		</div>
+ 			{{/each}}
  		{{else}}
 
  		<div class="talkerSpeechLineContainer">
- 			<div class="talkerSPeechLinePlaceholder"></div>
+ 			<div class="talkerSPeechLinePlaceholder">
+ 			</div>
+ 			
  			<div class="speechBalloonContainer">
  				<div class="speechBalloonLabel" style="background-color: {{_talkerColor}}"> 
  					<span style="color: {{_talkerColor}}"> {{_talkerName}} </span> 
  				</div>
-				<textarea class="speechBalloon" type="textArea" placeholder="Donc je suis là dans les gradins et j'attends le début du spectacle." maxlength="250"></textarea>
+				<textarea oninput='this.style.height = ""; this.style.height = this.scrollHeight - 20 + "px";' class="speechBalloon" type="textArea" placeholder="Donc je suis là dans les gradins et j'attends le début du spectacle. " maxlength="250"></textarea>
  			</div>
- 			<div class="drawingPreview"></div>
+
+ 			<div class="drawingPreview">
+ 				<img src="img/test.png">
+ 			</div>
+ 	
  		</div>
 
  		{{/if}}

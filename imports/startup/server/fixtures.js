@@ -41,8 +41,8 @@ Meteor.startup(() => {
 
     Discussions.insert({      
       titleOfDiscussion : "les chiens",
-      talkerName : "Bob",
-      listenerName : "Alice",
+      talkerName : "Alice",
+      listenerName : "Bob",
       talkerColor : "#f7ba62",
       listenerColor : "#da735b",
       date : theDate,
@@ -50,6 +50,8 @@ Meteor.startup(() => {
     })
 
   }
+
+
 
 
   if (DiscussionLines.find().count() === 0) {

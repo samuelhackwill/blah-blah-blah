@@ -1,6 +1,5 @@
 .conversationEditorContainer{
 	width: 100%;
-	border: solid 1px black;
 
 	margin-top: 30px;
 }
@@ -10,7 +9,6 @@
 }
 
 .talkerSpeechLineContainer > div{
-	border: solid 1px black;
 }
 
 .talkerSPeechLinePlaceholder{
@@ -35,10 +33,12 @@
 }
 
 .speechBalloonLabel >span{
+	font-family: PicNic, sans-serif;
     filter: invert(100%);
 }
 
 .speechBalloon{
+	resize: none;
 	border: solid 1px black;
 	background-color: white;
 	border-radius: 10px;
@@ -51,4 +51,11 @@
 
 .drawingPreview{
 	width: 25%;
+	display: flex;
+}
+
+.drawingPreview > img{
+	border: solid 1px black;
+	height: 100px;
+	align-self: center;
 }
