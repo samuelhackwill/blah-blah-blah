@@ -28,16 +28,20 @@ Template.edit.helpers({
 	discussionData(){
 		return{
 			discussionData:Discussions.find({}).fetch(), 
-			_talkerName : Template.instance().talkerName.curValue, 
-			_listenerName : Template.instance().listenerName.curValue,
-			_talkerColor : Template.instance().talkerColor.curValue, 
-			_listenerColor : Template.instance().listenerColor.curValue
+			_talkerName : Template.instance().talkerName.get(), 
+			_listenerName : Template.instance().listenerName.get(),
+			_talkerColor : Template.instance().talkerColor.get(), 
+			_listenerColor : Template.instance().listenerColor.get()
 		}
 	},	
 
 	discussionLinesData(){
 		return{
-			discussionLinesData:DiscussionLines.find({}).fetch()
+			discussionLinesData:DiscussionLines.find({}).fetch(),
+			_talkerName : this.talkerName.get(), 
+			_listenerName : Template.instance().listenerName.get(),
+			_talkerColor : Template.instance().talkerColor.get(), 
+			_listenerColor : Template.instance().listenerColor.get()
 		}
 	}
 })

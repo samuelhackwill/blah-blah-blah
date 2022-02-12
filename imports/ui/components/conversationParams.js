@@ -9,17 +9,3 @@ Template.conversationParams.onCreated(function(){
 
 Template.conversationParams.helpers({
 })
-
-Template.conversationParams.events({
-	"click .colorPicker":function(e){
-
-		// the system here makes it possible that both peeps
-		// will have the same color. We could change that
-		// by splicing the array rather than reading it
-		// and replacing the color the end of the array
-		// everytime we change color.
-
-		randomNmbr = Math.floor(Math.random()*allCssNamedColors.length)
-		e.target.style.backgroundColor = allCssNamedColors[randomNmbr]
-	}
-})

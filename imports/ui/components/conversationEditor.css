@@ -24,10 +24,19 @@
 }
 
 .speechBalloonLabel{
+	padding: 5px;
 	position: absolute;
 	left: 25%;
-	transform: translate(100%, 50%);
+	transform: translate(50%, 0%);
 	margin-left: 10px;
+	border-radius: 4px 4px 0px 0px;
+	border-top:    1px solid  black;
+	border-right:  1px solid black;
+	border-left: 1px solid black;
+}
+
+.speechBalloonLabel >span{
+    filter: invert(100%);
 }
 
 .speechBalloon{
