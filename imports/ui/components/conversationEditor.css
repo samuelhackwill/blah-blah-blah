@@ -12,7 +12,7 @@
 }
 
 .talkerSPeechLinePlaceholder{
-	width: 25%;
+	width: 17.5%;
 }
 
 .speechBalloonContainer{
@@ -24,17 +24,19 @@
 .speechBalloonLabel{
 	padding: 5px;
 	position: absolute;
-	left: 28%;
+	transform: translateX(20px);
 	margin-left: 10px;
 	border-radius: 4px 4px 0px 0px;
 	border-top:    1px solid  black;
 	border-right:  1px solid black;
 	border-left: 1px solid black;
+
+	cursor: pointer;
 }
 
 .speechBalloonLabel >span{
 	font-family: PicNic, sans-serif;
-    filter: invert(100%);
+	color: black;
 }
 
 .speechBalloon{
@@ -50,12 +52,23 @@
 }
 
 .drawingPreview{
-	width: 25%;
+	width: 17.5%;
 	display: flex;
+	flex-direction: column;
+	margin-top: auto;
+	margin-bottom: auto;
 }
 
 .drawingPreview > img{
 	border: solid 1px black;
 	height: 100px;
 	align-self: center;
+}
+
+.addTextContainer{
+	display: flex;
+	margin-bottom: 200px;
+}
+
+.addTextButton{
 }

@@ -10,19 +10,27 @@
  		{{#if discussionLinesData}}
  			{{#each discussionLinesData}}
 		 		<div class="talkerSpeechLineContainer">
-		 			<div class="talkerSPeechLinePlaceholder">
+		 			
+		 			<div class="talkerSPeechLinePlaceholder" style="{{_style arg='placeHolder1'}};">
 		 			</div>
 		 			
-		 			<div class="speechBalloonContainer">
+		 			<div class="talkerSPeechLinePlaceholder" style="{{_style arg='placeHolder2'}};">
+		 			</div>
+		 			
+		 			<div class="speechBalloonContainer" style="{{_style arg='speechBalloon'}};">
 		 				<div class="speechBalloonLabel" style="background-color: 
 		 				{{getRelevantPeepColor}}"> 
-		 					<span style="color: {{getRelevantPeepColor}}"> {{getRelevantPeep}} </span> 
+		 					<span> {{getRelevantPeep}} </span> 
 		 				</div>
 						<textarea oninput='this.style.height = ""; this.style.height = this.scrollHeight - 20 + "px";' class="speechBalloon" type="textArea" value="{{lineContent}}" maxlength="250"></textarea>
 		 			</div>
 
-		 			<div class="drawingPreview">
-		 				<img src="/img/test.png">
+		 			<div class="drawingPreview" style="{{_style arg='drawing'}};">
+		 				<img src="/img/test.png" style="{{_style arg='drawingChild'}}">
+		 			</div>
+
+
+		 			<div class="talkerSPeechLinePlaceholder" style="{{_style arg='placeHolder3'}};">
 		 			</div>
 		 	
 		 		</div>
@@ -35,7 +43,7 @@
  			
  			<div class="speechBalloonContainer">
  				<div class="speechBalloonLabel" style="background-color: {{_talkerColor}}"> 
- 					<span style="color: {{_talkerColor}}"> {{_talkerName}} </span> 
+ 					<span> {{_talkerName}} </span> 
  				</div>
 				<textarea oninput='this.style.height = ""; this.style.height = this.scrollHeight - 20 + "px";' class="speechBalloon" type="textArea" placeholder="Donc je suis là dans les gradins et j'attends le début du spectacle. " maxlength="250"></textarea>
  			</div>
@@ -49,8 +57,9 @@
  		{{/if}}
 
 
-		<div class="oneLineOfText">
-						
+		<div class="addTextContainer">
+			<button class="addTextButton">Ajouter une ligne de dialogue!</button>
+			<button class="save">Sauvegarder</button>
 		</div>
 
 	</div>
