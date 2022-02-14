@@ -2,6 +2,7 @@ import { Mongo } from 'meteor/mongo';
 import SimpleSchema from 'simpl-schema';
 
 export const DiscussionLines = new Mongo.Collection('discussionLines');
+export const MockDiscussionLines = new Mongo.Collection(null)
 
 export const DiscussionLinesSchema = new SimpleSchema({
 	belongsToDiscussionNamed : {
@@ -22,3 +23,4 @@ export const DiscussionLinesSchema = new SimpleSchema({
 })
 
 DiscussionLines.attachSchema(DiscussionLinesSchema);
+MockDiscussionLines.attachSchema(DiscussionLinesSchema);

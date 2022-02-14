@@ -1,6 +1,13 @@
 import './conversationParams.html';
 import './conversationParams.css';
 
+import { DiscussionLines } from '../../api/discussionLines/discussionLines.js';
+import { Discussions } from '../../api/discussions/discussions.js';
+import { MockDiscussionLines } from '../../api/discussionLines/discussionLines.js';
+import { MockDiscussions } from '../../api/discussions/discussions.js';
+
+import { allCssNamedColors } from '../../api/discussions/methods.js';
+
 Template.conversationParams.onCreated(function(){
 	// console.log(this)
 })
@@ -18,7 +25,6 @@ Template.conversationParams.events({
 
 	"click .colorPicker":function(e){
 
-
 		// the system here makes it possible that both peeps
 		// will have the same color. We could change that
 		// by splicing the array rather than reading it
@@ -31,8 +37,22 @@ Template.conversationParams.events({
 			_target = "listenerColor"
 		}
 
-		console.log(this.titleOfDiscussion , _target == "talkerColor", this[_target])
-		Meteor.call('colorChange', this.titleOfDiscussion , _target == "talkerColor", this[_target])
+		indexInArray = allCssNamedColors.findIndex(color => color == this[_target])
+
+		indexInArray = indexInArray +1
+
+		if (indexInArray == allCssNamedColors.length) {
+			indexInArray = 0
+		}
+
+		if(Discussions.find({}).fetch()==![]){
+			// query for new
+		    MockDiscussions.update({titleOfDiscussion:this.titleOfDiscussion}, {$set:{[_target] : allCssNamedColors[indexInArray]}})
+		}else{
+			// query for edit
+			Meteor.call('colorChange', this.titleOfDiscussion , _target == "talkerColor", this[_target])
+		}
+
 
 	},
 
