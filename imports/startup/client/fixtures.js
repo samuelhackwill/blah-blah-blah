@@ -15,8 +15,6 @@ const mock = [
     options = {weekday : 'long', year: 'numeric', month: 'long', day: 'numeric'}
     theDate = theDate.toLocaleDateString('fr-FR', options)
 
-    console.log("MockDiscussions is empty!")
-
     MockDiscussions.insert({      
       titleOfDiscussion : "mockDiscussion",
       talkerName : "Une première personne",
@@ -31,8 +29,6 @@ const mock = [
   
 
   if (MockDiscussionLines.find().count() === 0) {
-
-    console.log("MockDiscussionLines is empty!")
 
     for (var i = 0; i < mock.length; i++) {
       MockDiscussionLines.insert({      

@@ -8,13 +8,6 @@ import { MockDiscussions } from '../../api/discussions/discussions.js';
 
 import { allCssNamedColors } from '../../api/discussions/methods.js';
 
-Template.conversationParams.onCreated(function(){
-	// console.log(this)
-})
-
-Template.conversationParams.helpers({
-})
-
 updateImminent = {}
 
 invalidKeys = [9, 27, 37, 38, 39, 40, 16, 17, 18, 224]
@@ -24,16 +17,6 @@ invalidKeys = [9, 27, 37, 38, 39, 40, 16, 17, 18, 224]
 Template.conversationParams.events({
 
 	"click .colorPicker":function(e){
-
-		editing = ""
-
-		if(Discussions.find({}).fetch()==![]){
-			// this is from /new template
-			editing = false
-		}else{
-			// this is from /edit template
-			editing = true
-		}
 
 		// the system here makes it possible that both peeps
 		// will have the same color. We could change that
@@ -55,7 +38,7 @@ Template.conversationParams.events({
 			indexInArray = 0
 		}
 
-		if(editing){
+		if(areWeInTheEditingView()){
 			// query for edit
 			Meteor.call('colorChange', this.titleOfDiscussion , _target == "talkerColor", this[_target])
 		}else{
@@ -67,16 +50,6 @@ Template.conversationParams.events({
 	},
 
 	"keyup .nameForm":function(e){
-
-		editing = ""
-
-		if(Discussions.find({}).fetch()==![]){
-			// this is from /new template
-			editing = false
-		}else{
-			// this is from /edit template
-			editing = true
-		}
 
 		if (invalidKeys.find(key => key == e.originalEvent.keyCode)) {
 			console.log("return ")
@@ -94,7 +67,7 @@ Template.conversationParams.events({
 		clearTimeout(updateImminent[_target])
 
 		updateImminent[_target] = setTimeout(() => {
-			if (editing) {
+			if (areWeInTheEditingView()) {
 				Meteor.call('peepNameChange', this.titleOfDiscussion, _target == "talkerName", newName)
 			}else{
 				MockDiscussions.update({titleOfDiscussion:this.titleOfDiscussion}, {$set:{[_target] : newName}})    

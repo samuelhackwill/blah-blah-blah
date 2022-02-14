@@ -7,7 +7,7 @@
 				<span> Parlant : </span>
 
 					{{#each discussionData}}	
-						<input class="nameForm" type="text" name="name1" value="{{talkerName}}">
+						<input maxlength="42" class="nameForm" type="text" name="name1" value="{{talkerName}}">
 						<div class="colorPicker" id="colorPicker1" style="background-color:{{talkerColor}};">X</div>
 
 					{{/each}}
@@ -17,7 +17,7 @@
 				<span> Écoutant :</span>
 
 					{{#each discussionData}}	
-						<input class="nameForm" type="text" name="name2" value="{{listenerName}}">
+						<input maxlength="42" class="nameForm" type="text" name="name2" value="{{listenerName}}">
 						<div class="colorPicker" id="colorPicker2" style="background-color:{{listenerColor}};">X</div>
 
 					{{/each}}
@@ -29,27 +29,18 @@
 		<div class="conversationParamsContainerColumn">
 		
 			<div class="inputBlock">
-				{{#if discussionData}}
-					{{#each discussionData}}	
-						<span> Date :</span>
-						<input type="text" name="date" value="{{date}}">
-					{{/each}}
-				{{else}}
-						<span> Date :</span>
-						<input type="text" name="date" placeholder="Jeudi 25 Février 2027">
-				{{/if}}	
+				{{#each discussionData}}	
+					<span> Date :</span>
+					<input maxlength="42" type="text" name="date" value="{{date}}">
+				{{/each}}
+
 			</div>
 
 			<div class="inputBlock">
-				{{#if discussionData}}
-					{{#each discussionData}}	
-						<span> Lieu :</span>
-						<input type="text" name="place" value="{{place}}">
-					{{/each}}
-				{{else}}
-						<span> Lieu :</span>
-						<input type="text" name="place" placeholder="Montréal">
-				{{/if}}
+				{{#each discussionData}}	
+					<span> Lieu :</span>
+					<input maxlength="42" type="text" name="place" value="{{place}}">
+				{{/each}}
 			</div>
 
 		</div>

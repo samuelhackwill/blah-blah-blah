@@ -30,9 +30,6 @@ Meteor.methods({
         indexInArray = 0
     }
 
-    // console.log(_formerColor, indexInArray, allCssNamedColors[indexInArray])
-    // console.log(allCssNamedColors[130])
-
     Discussions.update({titleOfDiscussion:_discussion}, {$set:{[_talkerOrListener] : allCssNamedColors[indexInArray]}})
   },
 

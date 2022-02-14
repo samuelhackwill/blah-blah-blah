@@ -54,12 +54,12 @@ Template.conversationEditor.helpers({
 			_talkerOrListener = "listenerColor"
 		}
 		
-		if(Discussions.find({}).fetch()==![]){
-			// query for new
-			_query = MockDiscussions.find({titleOfDiscussion : this.belongsToDiscussionNamed}).fetch()[0][_talkerOrListener]
-		}else{
+		if(areWeInTheEditingView()){
 			// query for edit
 			_query = Discussions.find({titleOfDiscussion : this.belongsToDiscussionNamed}).fetch()[0][_talkerOrListener]
+		}else{
+			// query for new
+			_query = MockDiscussions.find({titleOfDiscussion : this.belongsToDiscussionNamed}).fetch()[0][_talkerOrListener]
 		}
 
 		return _query	
@@ -121,21 +121,30 @@ Template.conversationEditor.events({
 
 	"click .speechBalloonLabel" : function(e){
 
-		editing = ""
-
-		if(Discussions.find({}).fetch()==![]){
-			// this is from /new template
-			editing = false
-		}else{
-			// this is from /edit template
-			editing = true
-		}
-
-		if(editing){
+		if(areWeInTheEditingView()){
 			Meteor.call('peepStatusChange', this.belongsToDiscussionNamed , this.isItTheTalker, this.lineIndex)
 		}else{
 		    _newStatus =! this.isItTheTalker
 		    MockDiscussionLines.update({belongsToDiscussionNamed: this.belongsToDiscussionNamed , lineIndex : this.lineIndex}, {$set : {isItTheTalker : _newStatus}})
+		}
+	},
+
+	"click .addTextButton" : function(e){
+
+		if(areWeInTheEditingView()){
+			// this is executed by the component when it's in the /edit view
+
+		}else{
+			// this is executed by the component when it's in the /new view
+			currentIndex = MockDiscussionLines.find({}).fetch().length
+			_index = currentIndex + 1
+
+			MockDiscussionLines.insert({
+	        belongsToDiscussionNamed : "mockDiscussion",
+	        isItTheTalker : true,
+	        lineContent : "bla bla blah.",
+	        imgId : 1,
+	        lineIndex : _index})			
 		}
 	}
 
