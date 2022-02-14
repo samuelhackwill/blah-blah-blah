@@ -58,6 +58,16 @@ Template.conversationParams.events({
 
 	"keyup .nameForm":function(e){
 
+		editing = ""
+
+		if(Discussions.find({}).fetch()==![]){
+			// this is from /new template
+			editing = false
+		}else{
+			// this is from /edit template
+			editing = true
+		}
+
 		if (invalidKeys.find(key => key == e.originalEvent.keyCode)) {
 			console.log("return ")
 			return
@@ -74,7 +84,11 @@ Template.conversationParams.events({
 		clearTimeout(updateImminent[_target])
 
 		updateImminent[_target] = setTimeout(() => {
-			Meteor.call('peepNameChange', this.titleOfDiscussion, _target == "talkerName", newName)
+			if (editing) {
+				Meteor.call('peepNameChange', this.titleOfDiscussion, _target == "talkerName", newName)
+			}else{
+				MockDiscussions.update({titleOfDiscussion:this.titleOfDiscussion}, {$set:{[_target] : newName}})    
+			}
 		}, 750)
 	}
 })

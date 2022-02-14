@@ -44,11 +44,8 @@ Meteor.methods({
       _talkerOrListener = "listenerName"
     }
 
-    if (isItNewTemplate) {
-      MockDiscussions.update({titleOfDiscussion:_discussion}, {$set:{[_talkerOrListener] : _newName}})    
-    }else{
-      Discussions.update({titleOfDiscussion:_discussion}, {$set:{[_talkerOrListener] : _newName}})
-    }
+    Discussions.update({titleOfDiscussion:_discussion}, {$set:{[_talkerOrListener] : _newName}})
+
   }
 });
 
