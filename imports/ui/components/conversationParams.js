@@ -25,6 +25,16 @@ Template.conversationParams.events({
 
 	"click .colorPicker":function(e){
 
+		editing = ""
+
+		if(Discussions.find({}).fetch()==![]){
+			// this is from /new template
+			editing = false
+		}else{
+			// this is from /edit template
+			editing = true
+		}
+
 		// the system here makes it possible that both peeps
 		// will have the same color. We could change that
 		// by splicing the array rather than reading it
@@ -45,12 +55,12 @@ Template.conversationParams.events({
 			indexInArray = 0
 		}
 
-		if(Discussions.find({}).fetch()==![]){
-			// query for new
-		    MockDiscussions.update({titleOfDiscussion:this.titleOfDiscussion}, {$set:{[_target] : allCssNamedColors[indexInArray]}})
-		}else{
+		if(editing){
 			// query for edit
 			Meteor.call('colorChange', this.titleOfDiscussion , _target == "talkerColor", this[_target])
+		}else{
+			// query for new
+		    MockDiscussions.update({titleOfDiscussion:this.titleOfDiscussion}, {$set:{[_target] : allCssNamedColors[indexInArray]}})
 		}
 
 

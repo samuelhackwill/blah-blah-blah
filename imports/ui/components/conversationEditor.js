@@ -120,7 +120,23 @@ Template.conversationEditor.helpers({
 Template.conversationEditor.events({
 
 	"click .speechBalloonLabel" : function(e){
-		Meteor.call('peepStatusChange', this.belongsToDiscussionNamed , this.isItTheTalker, this.lineIndex)
+
+		editing = ""
+
+		if(Discussions.find({}).fetch()==![]){
+			// this is from /new template
+			editing = false
+		}else{
+			// this is from /edit template
+			editing = true
+		}
+
+		if(editing){
+			Meteor.call('peepStatusChange', this.belongsToDiscussionNamed , this.isItTheTalker, this.lineIndex)
+		}else{
+		    _newStatus =! this.isItTheTalker
+		    MockDiscussionLines.update({belongsToDiscussionNamed: this.belongsToDiscussionNamed , lineIndex : this.lineIndex}, {$set : {isItTheTalker : _newStatus}})
+		}
 	}
 
 })
