@@ -131,13 +131,16 @@ Template.conversationEditor.events({
 
 	"click .addTextButton" : function(e){
 
+		currentIndex = this.discussionLinesData.length
+		_index = currentIndex + 1
+
+		console.log(this)
+
 		if(areWeInTheEditingView()){
 			// this is executed by the component when it's in the /edit view
-
+			Meteor.call("insertNewLine", this.discussionLinesData[0].belongsToDiscussionNamed, _index)
 		}else{
 			// this is executed by the component when it's in the /new view
-			currentIndex = MockDiscussionLines.find({}).fetch().length
-			_index = currentIndex + 1
 
 			MockDiscussionLines.insert({
 	        belongsToDiscussionNamed : "mockDiscussion",
@@ -146,6 +149,15 @@ Template.conversationEditor.events({
 	        imgId : 1,
 	        lineIndex : _index})			
 		}
+	},
+
+	"click .delete" : function(e){
+		if(areWeInTheEditingView()){
+			Meteor.call("removeLine", this._id)
+		}else{
+			MockDiscussionLines.remove({_id : this._id})
+		}
+
 	}
 
 })
