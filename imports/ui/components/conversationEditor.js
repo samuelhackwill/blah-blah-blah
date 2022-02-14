@@ -21,9 +21,9 @@ Template.conversationEditor.helpers({
 
 	peepName : function(){
 		if (this.isItTheTalker == true) {
-			return "Alice"
+			return Discussions.find({titleOfDiscussion : this.belongsToDiscussionNamed}).fetch()[0].talkerName
 		}else{
-			return "Bob"
+			return Discussions.find({titleOfDiscussion : this.belongsToDiscussionNamed}).fetch()[0].listenerName
 		}
 	},
 
@@ -92,20 +92,6 @@ Template.conversationEditor.events({
 
 	"click .speechBalloonLabel" : function(e){
 		Meteor.call('peepStatusChange', this.belongsToDiscussionNamed , this.isItTheTalker, this.lineIndex)
-	},
-
-	"keyup .nameForm":function(e){
-
-		if (e.target.name == "name1") {
-			_target = "talkerName"
-		}else{
-			_target = "listenerName"
-		}
-
-		DiscussionLines.find({}).fetch()
-
-		Template.instance()[_target].set(e.target.value)
-
 	}
 
 })
