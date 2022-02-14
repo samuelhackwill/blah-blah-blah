@@ -25,13 +25,18 @@ Meteor.methods({
       _talkerOrListener = "listenerColor"
     }
 
+    if (indexInArray == allCssNamedColors.length) {
+        indexInArray = 0
+    }
+
+    // console.log(_formerColor, indexInArray, allCssNamedColors[indexInArray])
+    // console.log(allCssNamedColors[130])
+
     Discussions.update({titleOfDiscussion:_discussion}, {$set:{[_talkerOrListener] : allCssNamedColors[indexInArray]}})
 
   },
 
   'peepNameChange':function(_discussion, _isItTalker, _newName){
-
-    console.log(_discussion, _isItTalker, _newName)
 
     if (_isItTalker) {
       _talkerOrListener = "talkerName"

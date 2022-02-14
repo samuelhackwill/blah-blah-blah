@@ -18,6 +18,7 @@ Template.conversationParams.events({
 
 	"click .colorPicker":function(e){
 
+
 		// the system here makes it possible that both peeps
 		// will have the same color. We could change that
 		// by splicing the array rather than reading it
@@ -30,6 +31,7 @@ Template.conversationParams.events({
 			_target = "listenerColor"
 		}
 
+		console.log(this.titleOfDiscussion , _target == "talkerColor", this[_target])
 		Meteor.call('colorChange', this.titleOfDiscussion , _target == "talkerColor", this[_target])
 
 	},
