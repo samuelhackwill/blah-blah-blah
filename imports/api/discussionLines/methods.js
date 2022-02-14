@@ -1,8 +1,8 @@
 import { DiscussionLines } from './discussionLines.js'
 
 Meteor.methods({
-  'tempPeepChange': function (__id, newPeepName) {
-    console.log(__id, newPeepName)
-    DiscussionLines.update({__id}, {$set : {peepName : newPeepName}})
+  'peepStatusChange': function (_discussion, _formerPeepStatus, _lineIndex) {
+    _newStatus =! _formerPeepStatus
+    DiscussionLines.update({belongsToDiscussionNamed: _discussion , lineIndex : _lineIndex}, {$set : {isItTheTalker : _newStatus}})
   }
 })

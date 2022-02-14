@@ -7,8 +7,8 @@ export const DiscussionLinesSchema = new SimpleSchema({
 	belongsToDiscussionNamed : {
 		type : String,
 	},		
-	peepName : {
-		type : String,
+	isItTheTalker : {
+		type : Boolean,
 	},		
 	lineContent : {
 		type : String,

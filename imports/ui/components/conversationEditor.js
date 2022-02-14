@@ -18,28 +18,25 @@ Template.conversationEditor.onCreated(function(){
 
 Template.conversationEditor.helpers({
 
-	// REFACTORING : we could probably have one function returning an object here,
-	// and the helpers take the data they want from it.
+	peepName : function(){
+		if (this.isItTheTalker == true) {
+			return "Alice"
+		}else{
+			return "Bob"
+		}
+	},
+
 
 	getRelevantPeepColor : function(){
-		if (this.peepName==ogTalker) {
+		if (this.isItTheTalker == true) {
 			return Template.instance().data._talkerColor
 		}else{
 			return Template.instance().data._listenerColor
 		}
 	},
 
-	getRelevantPeep : function(){
-
-		if (this.peepName==ogTalker) {
-			return Template.instance().data._talkerName
-		}else{
-			return Template.instance().data._listenerName
-		}
-	},
-
 	_style : function(arg){
-		if (this.peepName==ogTalker) {
+		if (this.isItTheTalker == true) {
 			// this is a talker
 			switch(arg.hash.arg){
 				case "placeHolder1" :
@@ -92,32 +89,8 @@ Template.conversationEditor.helpers({
 
 Template.conversationEditor.events({
 
-	// "click .speechBalloonLabel" : function(e){
-	// 	console.log(this.belongsToDiscussionNamed, this.lineIndex, "is it a talker? ", this.peepName==ogTalker)
-
-	// 	newPeepName = ""
-
-	// 	if (this.peepName==ogTalker) {
-	// 		newPeepName = Template.instance().data._talkerName
-	// 	}else{
-	// 		newPeepName = ogTalker
-	// 	}
-
-	// 	console.log(newPeepName)
-
-	// 	// find by belongsToDiscussionNamed && lineIndex
-
-	// 	// ok so what we should do is update the DB and give that peep a name equal to OG TALKER
-	// 	// if it's the talker, and whatever if it's not the talker.
-	// 	// this is to conform with the STRANGE behaviour of the helper ci-dessus.
-	// 	__id = DiscussionLines.find({belongsToDiscussionNamed:this.belongsToDiscussionNamed, lineIndex : this.lineIndex}).fetch()[0]._id	
-
-
-	// 	Meteor.call('tempPeepChange',__id, newPeepName)
-
-	// 	this.peepName = newPeepName
-
-	// 	console.log("new peep name ", this.peepName)
-
-	// }
+	"click .speechBalloonLabel" : function(e){
+		console.log("which discuss? ", this.belongsToDiscussionNamed, "is it the talker ?", this.isItTheTalker, "which index? ", this.lineIndex)
+		Meteor.call('peepStatusChange', this.belongsToDiscussionNamed , this.isItTheTalker, this.lineIndex)
+	}
 })

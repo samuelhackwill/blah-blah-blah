@@ -75,6 +75,8 @@ Template.edit.events({
 			_target = "listenerName"
 		}
 
+		DiscussionLines.find({}).fetch()
+
 		Template.instance()[_target].set(e.target.value)
 
 	}
