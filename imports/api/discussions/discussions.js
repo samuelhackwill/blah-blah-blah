@@ -7,12 +7,15 @@ export const MockDiscussions = new Mongo.Collection(null)
 export const DiscussionsSchema = new SimpleSchema({
 	titleOfDiscussion : {
 		type : String,
+		max : 42
 	},	
 	talkerName : {
 		type : String,
+		max : 42
 	},	
 	listenerName : {
 		type : String,
+		max : 42
 	},
 	talkerColor : {
 		type : String,
@@ -25,6 +28,7 @@ export const DiscussionsSchema = new SimpleSchema({
 	},
 	place : {
 		type : String,
+		max : 42
 	}
 })
 

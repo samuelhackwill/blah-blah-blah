@@ -6,61 +6,45 @@
 		maybe initiate an empty local collection and clone it
 		during insert at the end?
  -->
+			{{#each discussionLinesData}}
+	 		<div class="talkerSpeechLineContainer">
+	 			
+	 			<div class="talkerSPeechLinePlaceholder" style="{{_style arg='placeHolder1'}};">
+	 			</div>
+	 			
+	 			<div class="talkerSPeechLinePlaceholder" style="{{_style arg='placeHolder2'}};">
+	 			</div>
+	 			
+	 			<div class="speechBalloonContainer" style="{{_style arg='speechBalloon'}};">
+	 				<div class="speechBalloonLabel" style="background-color: 
+	 				{{getRelevantPeepColor}}"> 
+	 					<span class="{{peepName}}"> {{peepName}} </span> 
+		 				<button tabindex="-1" class="delete">❌</button>
+	 				</div>
+					<textarea oninput='this.style.height = ""; this.style.height = this.scrollHeight - 20 + "px";' class="speechBalloon" type="textArea" value="{{lineContent}}" maxlength="250"></textarea>
+	 			</div>
 
- 		{{#if discussionLinesData}}
- 			{{#each discussionLinesData}}
-		 		<div class="talkerSpeechLineContainer">
-		 			
-		 			<div class="talkerSPeechLinePlaceholder" style="{{_style arg='placeHolder1'}};">
-		 			</div>
-		 			
-		 			<div class="talkerSPeechLinePlaceholder" style="{{_style arg='placeHolder2'}};">
-		 			</div>
-		 			
-		 			<div class="speechBalloonContainer" style="{{_style arg='speechBalloon'}};">
-		 				<div class="speechBalloonLabel" style="background-color: 
-		 				{{getRelevantPeepColor}}"> 
-		 					<span class="{{peepName}}"> {{peepName}} </span> 
-			 				<button class="delete">❌</button>
-		 				</div>
-						<textarea oninput='this.style.height = ""; this.style.height = this.scrollHeight - 20 + "px";' class="speechBalloon" type="textArea" value="{{lineContent}}" maxlength="250"></textarea>
-		 			</div>
-
-		 			<div class="drawingPreview" style="{{_style arg='drawing'}};">
-		 				<img src="/img/test.png" style="{{_style arg='drawingChild'}}">
-		 			</div>
+	 			<div class="drawingPreview" style="{{_style arg='drawing'}};">
+	 				<img src="/img/test.png" style="{{_style arg='drawingChild'}}">
+	 			</div>
 
 
-		 			<div class="talkerSPeechLinePlaceholder" style="{{_style arg='placeHolder3'}};">
-		 			</div>
-		 	
-		 		</div>
- 			{{/each}}
- 		{{else}}
-
- 		<div class="talkerSpeechLineContainer">
- 			<div class="talkerSPeechLinePlaceholder">
- 			</div>
- 			
- 			<div class="speechBalloonContainer">
- 				<div class="speechBalloonLabel" style="background-color: {{_talkerColor}}"> 
- 					<span> {{_talkerName}} </span> 
- 				</div>
-				<textarea oninput='this.style.height = ""; this.style.height = this.scrollHeight - 20 + "px";' class="speechBalloon" type="textArea" placeholder="Donc je suis là dans les gradins et j'attends le début du spectacle. " maxlength="250"></textarea>
- 			</div>
-
- 			<div class="drawingPreview">
- 				<img src="img/test.png">
- 			</div>
- 	
- 		</div>
-
- 		{{/if}}
-
+	 			<div class="talkerSPeechLinePlaceholder" style="{{_style arg='placeHolder3'}};">
+	 			</div>
+	 	
+	 		</div>
+			{{/each}}
 
 		<div class="addTextContainer">
 			<button class="addTextButton">Ajouter une ligne de dialogue!</button>
-			<button class="save">Sauvegarder</button>
+
+			{{#if isItEditingView}}
+			{{else}}
+			<div class="saveContainer">
+				<input type="text" name="newDiscussionName">
+				<button maxlength="42" class="save">Sauvegarder</button>
+			</div>
+			{{/if}}
 		</div>
 
 	</div>

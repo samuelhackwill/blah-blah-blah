@@ -42,7 +42,20 @@ Meteor.methods({
     }
 
     Discussions.update({titleOfDiscussion:_discussion}, {$set:{[_talkerOrListener] : _newName}})
+  },
 
+  'makeNewDiscussion':function(_discussion, dataObj){
+    console.log("Insterting new discussion !", _discussion, dataObj)
+
+    Discussions.insert({
+      titleOfDiscussion : _discussion,
+      talkerName : dataObj.talkerName,
+      listenerName : dataObj.listenerName,
+      talkerColor : dataObj.talkerColor,
+      listenerColor : dataObj.listenerColor,
+      date : dataObj.date,
+      place : dataObj.place
+    })
   }
 });
 

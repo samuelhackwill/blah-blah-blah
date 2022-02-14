@@ -7,11 +7,8 @@ import { MockDiscussionLines } from '../../api/discussionLines/discussionLines.j
 import { MockDiscussions } from '../../api/discussions/discussions.js';
 
 import { allCssNamedColors } from '../../api/discussions/methods.js';
-
-updateImminent = {}
-
-invalidKeys = [9, 27, 37, 38, 39, 40, 16, 17, 18, 224]
-// tab, escape, arrows, maj, ctrl, alt, option.
+import { invalidKeys } from '../layouts/body/body.js'
+import { updateImminent } from '../layouts/body/body.js'
 
 
 Template.conversationParams.events({

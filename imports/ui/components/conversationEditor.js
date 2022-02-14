@@ -6,6 +6,9 @@ import { Discussions } from '../../api/discussions/discussions.js';
 import { MockDiscussionLines } from '../../api/discussionLines/discussionLines.js';
 import { MockDiscussions } from '../../api/discussions/discussions.js';
 
+import { invalidKeys } from '../layouts/body/body.js'
+import { updateImminent } from '../layouts/body/body.js'
+
 Template.conversationEditor.onCreated(function(){
 
 	// REFACTORING : this is a bit hacky sorry, we're using the global "ogTalker"
@@ -112,6 +115,10 @@ Template.conversationEditor.helpers({
 			break
 			}
 		}
+	},
+
+	isItEditingView:function(){
+		return areWeInTheEditingView()
 	}
 
 })
@@ -133,8 +140,6 @@ Template.conversationEditor.events({
 
 		currentIndex = this.discussionLinesData.length
 		_index = currentIndex + 1
-
-		console.log(this)
 
 		if(areWeInTheEditingView()){
 			// this is executed by the component when it's in the /edit view
@@ -158,6 +163,37 @@ Template.conversationEditor.events({
 			MockDiscussionLines.remove({_id : this._id})
 		}
 
+	},
+
+	"keyup .speechBalloon":function(e){
+
+		if (invalidKeys.find(key => key == e.originalEvent.keyCode)) {
+			console.log("return ")
+			return
+		}
+
+		newContent = e.target.value
+
+		clearTimeout(updateImminent[this._id])
+
+		updateImminent[this._id] = setTimeout(() => {
+			if (areWeInTheEditingView()) {
+				Meteor.call('lineContentChange', this._id, newContent)
+			}else{
+				MockDiscussionLines.update({_id:this._id}, {$set:{lineContent : newContent}})    
+			}
+		}, 750)
+	},
+
+	"click .save":function(e){
+		// console.log(this.discussionLinesData)
+		// console.log(e.target.previousElementSibling.value)
+
+		// console.log(MockDiscussions.find({}).fetch()[0])
+
+		Meteor.call("makeNewDiscussion", e.target.previousElementSibling.value, MockDiscussions.find({}).fetch()[0])
+		Meteor.call("insertBunchOfNewLines", e.target.previousElementSibling.value, this.discussionLinesData)
 	}
+
 
 })
