@@ -2,6 +2,7 @@ import './conversationEditor.html';
 import './conversationEditor.css';
 
 import { DiscussionLines } from '../../api/discussionLines/discussionLines.js';
+import { Discussions } from '../../api/discussions/discussions.js';
 
 Template.conversationEditor.onCreated(function(){
 
@@ -29,9 +30,9 @@ Template.conversationEditor.helpers({
 
 	getRelevantPeepColor : function(){
 		if (this.isItTheTalker == true) {
-			return Template.instance().data._talkerColor
+			return Discussions.find({titleOfDiscussion : this.belongsToDiscussionNamed}).fetch()[0].talkerColor
 		}else{
-			return Template.instance().data._listenerColor
+			return Discussions.find({titleOfDiscussion : this.belongsToDiscussionNamed}).fetch()[0].listenerColor
 		}
 	},
 
@@ -90,7 +91,21 @@ Template.conversationEditor.helpers({
 Template.conversationEditor.events({
 
 	"click .speechBalloonLabel" : function(e){
-		console.log("which discuss? ", this.belongsToDiscussionNamed, "is it the talker ?", this.isItTheTalker, "which index? ", this.lineIndex)
 		Meteor.call('peepStatusChange', this.belongsToDiscussionNamed , this.isItTheTalker, this.lineIndex)
+	},
+
+	"keyup .nameForm":function(e){
+
+		if (e.target.name == "name1") {
+			_target = "talkerName"
+		}else{
+			_target = "listenerName"
+		}
+
+		DiscussionLines.find({}).fetch()
+
+		Template.instance()[_target].set(e.target.value)
+
 	}
+
 })

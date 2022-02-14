@@ -28,8 +28,6 @@ const lesChiens = [
 {talker:false, lineContent:"hé ben ça a l'air super."}
 ]
 
-//ss
-
 Meteor.startup(() => {
   // if the Links collection is empty
   if (Discussions.find().count() === 0) {
@@ -44,16 +42,14 @@ Meteor.startup(() => {
       titleOfDiscussion : "les chiens",
       talkerName : "Alice",
       listenerName : "Bob",
-      talkerColor : "#f7ba62",
-      listenerColor : "#da735b",
+      talkerColor : "AliceBlue",
+      listenerColor : "FireBrick",
       date : theDate,
       place : "Bruxelles"
     })
 
   }
-
-
-
+  
 
   if (DiscussionLines.find().count() === 0) {
 

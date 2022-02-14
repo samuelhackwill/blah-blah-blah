@@ -6,16 +6,25 @@
 			<div class="inputBlock">
 				<span> Parlant : </span>
 
-					<input class="nameForm" type="text" name="name1" value="{{_talkerName}}">
-					<div class="colorPicker" id="colorPicker1" style="background-color:{{_talkerColor}};">X</div>
+					{{#if discussionData}}
+						{{#each discussionData}}	
+							<input class="nameForm" type="text" name="name1" value="{{talkerName}}">
+							<div class="colorPicker" id="colorPicker1" style="background-color:{{talkerColor}};">X</div>
 
+						{{/each}}
+					{{/if}}
 			</div>
 
 			<div class="inputBlock">
 				<span> Écoutant :</span>
 
-					<input class="nameForm" type="text" name="name2" value="{{_listenerName}}">
-					<div class="colorPicker" id="colorPicker2" style="background-color:{{_listenerColor}};">X</div>
+					{{#if discussionData}}
+						{{#each discussionData}}	
+							<input class="nameForm" type="text" name="name2" value="{{listenerName}}">
+							<div class="colorPicker" id="colorPicker2" style="background-color:{{listenerColor}};">X</div>
+
+						{{/each}}
+					{{/if}}
 		
 			</div>
 
