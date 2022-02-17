@@ -34,12 +34,16 @@ FlowRouter.route('/read/:titleOfDiscussion', {
   },
 
   data() {
-    return DiscussionLines.find({});
+    return { 
+    discussionLines : DiscussionLines.find({}).fetch(), 
+    discussionParams : Discussions.find({}).fetch()
+    };
   },
 
   waitOn(params) {
     return [
-      Meteor.subscribe('discussionLines.one', params.titleOfDiscussion)
+      Meteor.subscribe('discussionLines.one', params.titleOfDiscussion), 
+      Meteor.subscribe('discussions.one', params.titleOfDiscussion)
     ];
   }
 

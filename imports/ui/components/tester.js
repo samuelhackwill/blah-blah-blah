@@ -10,7 +10,6 @@ Template.tester.onCreated(function testerOnCreated() {
 });
 
 Template.tester.onRendered(function(){
-
   $(document).ready(function() {
     console.log("everything has rendered")
     document.getElementById("homeBody").style.backgroundColor="white"
@@ -21,14 +20,14 @@ Template.tester.onRendered(function(){
 Template.tester.helpers({
   getLine() {
     index = Template.instance().counter.get();
-    return Template.instance().data.discussion.fetch()[index].lineContent
+    return Template.instance().data.discussion.discussionLines[index].lineContent
   },
 });
 
 Template.tester.events({
   "keyup" : function(e){
     index = Template.instance().counter.get()
-    endOfText = Template.instance().data.discussion.fetch().length-1
+    endOfText = Template.instance().data.discussion.discussionLines[index].length-1
 
     if (index<endOfText) {
       Template.instance().counter.set(index+1)

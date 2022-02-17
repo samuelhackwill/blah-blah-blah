@@ -1,3 +1,3 @@
 import './home.html';
 import './home.css';
-import '../../components/tester.js';
+import '../../components/theDrawing.js';
