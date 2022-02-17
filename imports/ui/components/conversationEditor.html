@@ -7,7 +7,7 @@
 		during insert at the end?
  -->
 			{{#each discussionLinesData}}
-	 		<div class="talkerSpeechLineContainer">
+	 		<div class="talkerSpeechLineContainer {{#if isItTheTalker}}talker{{else}}listener{{/if}}">
 	 			
 	 			<div class="talkerSPeechLinePlaceholder" style="{{_style arg='placeHolder1'}};">
 	 			</div>
@@ -19,9 +19,9 @@
 	 				<div class="speechBalloonLabel" style="background-color: 
 	 				{{getRelevantPeepColor}}"> 
 	 					<span class="{{peepName}}"> {{peepName}} </span> 
-		 				<button tabindex="-1" class="delete">❌</button>
+		 				<button tabindex="-1" class="delete">x</button>
 	 				</div>
-					<textarea oninput='this.style.height = ""; this.style.height = this.scrollHeight - 20 + "px";' class="speechBalloon" type="textArea" value="{{lineContent}}" maxlength="250"></textarea>
+					<textarea oninput='this.style.height = ""; this.style.height = this.scrollHeight - 20 + "px";' class="speechBalloon" type="textArea" value="{{lineContent}}" maxlength="250" onfocus="this.select()"></textarea>
 	 			</div>
 
 	 			<div class="drawingPreview" style="{{_style arg='drawing'}};">

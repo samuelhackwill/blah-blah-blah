@@ -14,7 +14,7 @@ FlowRouter.route('/', {
   name: 'home',
   waitOn() {
     return [
-      Meteor.subscribe('discussions.one')
+      Meteor.subscribe('discussions.random')
     ];
   },
   action(){

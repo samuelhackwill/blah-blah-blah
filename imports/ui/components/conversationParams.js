@@ -10,6 +10,11 @@ import { allCssNamedColors } from '../../api/discussions/methods.js';
 import { invalidKeys } from '../layouts/body/body.js'
 import { updateImminent } from '../layouts/body/body.js'
 
+Template.conversationParams.onCreated(function(){
+
+	console.log(this)
+
+})
 
 Template.conversationParams.events({
 

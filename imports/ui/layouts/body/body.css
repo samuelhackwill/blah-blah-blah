@@ -1,9 +1,17 @@
- @font-face {
+@font-face {
   font-family: PicNic;
-  src: url(/fonts/PicNic-Regular.woff);
+  src: url('/fonts/PicNic-Regular.woff2') format('woff2'),
+       url('/fonts/PicNic-Regular.woff') format('woff');
+} 
+
+@font-face {
+  font-family: ClearSans;
+  src: url('/fonts/ClearSans-Regular.woff') format('woff');
+
 } 
 
 html{
-	font-family: sans-serif;
+    font-display: swap;
+	font-family: ClearSans, sans-serif;
     background-color: #fff3f3;
 }
