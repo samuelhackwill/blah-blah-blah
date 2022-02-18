@@ -10,3 +10,11 @@
 .st2{
 	transition: opacity 2s;
 }
+
+.theDrawingText{
+	position: absolute;
+	left: 138.7px;
+	top: 76px;
+	border: solid 1px red;
+	transform : matrix(1 0 0 1 89 79.9316)
+}

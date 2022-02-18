@@ -29,8 +29,48 @@ Template.theDrawing.helpers({
 	
 	getLine() {
 		index = Template.instance().counter.get();
-		return Template.instance().data.discussion.discussionLines[index].lineContent
-	},
+		getText = Template.instance().data.discussion.discussionLines[index].lineContent
+    counter = 0
+    lines = {line1:[], line2:[], line3:[], line4:[], line5:[], line6:[]}
+    longletters = ["w","m"]
+    // max : 23 ... so 4,3 ratio
+    smallLetters = ["i","j","l","f","r","t"]
+    // max : 77 approx ... so 1,3 ratio
+
+    // letters and numbers should default to medium
+    // non-word (spaces, punctuation, etc) should default to small.
+
+    for (var i = 0 ; i < getText.length; i++) {
+      if(counter<100) lines.line1.push(getText[i])
+      if(counter>=100 && counter<200) lines.line2.push(getText[i])
+      if(counter>=200 && counter<300) lines.line3.push(getText[i])
+      if(counter>=300 && counter<400) lines.line4.push(getText[i])
+      if(counter>=400 && counter<500) lines.line5.push(getText[i])
+      if(counter>=500 && counter<600) lines.line6.push(getText[i])
+
+      if (getText[i] == "w" || getText[i] == "m"){
+        counter = counter + 2.8   
+      }
+
+      if (getText[i] == "i" || getText[i] == "j" || getText[i] == "l" || getText[i] == "f" || getText[i] == "r" || getText[i] == "t"){
+        counter = counter - 1.3   
+      }
+
+      counter = counter + 2.8
+
+    }
+
+    console.log(lines.line1.join(''))
+
+    return {
+      line1:lines.line1.join(''),
+      line2:lines.line2.join(''),
+      line3:lines.line3.join(''),
+      line4:lines.line4.join(''),
+      line5:lines.line5.join(''),
+      line6:lines.line6.join('')
+    }
+  },
 
   speechballoonLabelName(){
     index = Template.instance().counter.get();

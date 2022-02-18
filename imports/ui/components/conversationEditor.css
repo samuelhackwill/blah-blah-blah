@@ -17,14 +17,15 @@
 .speechBalloonContainer{
 	width: 50%;
 	display: flex;
+	margin-bottom: -20px;
 }
 
 .talker + .listener {
-	margin-top: -45px;
+	margin-top: -25px;
 }
 
 .listener + .talker {
-	margin-top: -45px;
+	margin-top: -25px;
 }
 
 .speechBalloonLabel{
