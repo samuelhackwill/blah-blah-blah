@@ -12,11 +12,11 @@ Template.theDrawing.onCreated(function theDrawingOnCreated() {
 Template.theDrawing.onRendered(function(){
   $(document).ready(function() {
     console.log("everything has rendered")
-    // document.getElementById("homeBody").style.backgroundColor="white"
-    allHiddenLayers = document.getElementsByClassName("st2")
-    for (var i = allHiddenLayers.length - 1; i >= 0; i--) {
-      allHiddenLayers[i].style.opacity = 1
-    }
+    
+    // allHiddenLayers = document.getElementsByClassName("st2")
+    // for (var i = allHiddenLayers.length - 1; i >= 0; i--) {
+    //   allHiddenLayers[i].style.opacity = 1
+    // }
   })
 
 })
@@ -27,8 +27,7 @@ Template.theDrawing.helpers({
 		return this.discussion.discussionParams[0][who.hash.arg+"Color"]
 	},
 	
-	getLine() {
-
+	wrapLine() {
     // this function's goal is to retrieve text and to split it in
     // one to six lines. One very long word breaks the wrapping.
 

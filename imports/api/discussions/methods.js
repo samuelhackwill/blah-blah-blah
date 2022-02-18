@@ -33,15 +33,8 @@ Meteor.methods({
     Discussions.update({titleOfDiscussion:_discussion}, {$set:{[_talkerOrListener] : allCssNamedColors[indexInArray]}})
   },
 
-  'peepNameChange':function(_discussion, _isItTalker, _newName){
-
-    if (_isItTalker) {
-      _talkerOrListener = "talkerName"
-    }else{
-      _talkerOrListener = "listenerName"
-    }
-
-    Discussions.update({titleOfDiscussion:_discussion}, {$set:{[_talkerOrListener] : _newName}})
+  'discussionParamChange':function(_discussion, _target, _newValue){
+    Discussions.update({titleOfDiscussion:_discussion}, {$set:{[_target] : _newValue}})
   },
 
   'makeNewDiscussion':function(_discussion, dataObj){

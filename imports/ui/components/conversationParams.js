@@ -51,28 +51,22 @@ Template.conversationParams.events({
 
 	},
 
-	"keyup .nameForm":function(e){
+	"keyup .discussionParamsForm":function(e){
 
 		if (invalidKeys.find(key => key == e.originalEvent.keyCode)) {
 			console.log("return ")
 			return
 		}
 
-		if (e.target.name == "name1") {
-			_target = "talkerName"
-		}else{
-			_target = "listenerName"
-		}
+		newValue = e.target.value
 
-		newName = e.target.value
+		clearTimeout(updateImminent[e.target.name])
 
-		clearTimeout(updateImminent[_target])
-
-		updateImminent[_target] = setTimeout(() => {
+		updateImminent[e.target.name] = setTimeout(() => {
 			if (areWeInTheEditingView()) {
-				Meteor.call('peepNameChange', this.titleOfDiscussion, _target == "talkerName", newName)
+				Meteor.call('discussionParamChange', this.titleOfDiscussion, e.target.name, newValue)
 			}else{
-				MockDiscussions.update({titleOfDiscussion:this.titleOfDiscussion}, {$set:{[_target] : newName}})    
+				MockDiscussions.update({titleOfDiscussion:this.titleOfDiscussion}, {$set:{[_target] : newValue}})    
 			}
 		}, 750)
 	}
