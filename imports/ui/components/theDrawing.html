@@ -104,13 +104,15 @@
     <tspan x="0" y="139.2" class="st4 st7 st9">hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh</tspan>
     <tspan x="0" y="174" class="st4 st7 st9">uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu</tspan></text>  
  -->
-    <text id="text" transform="matrix(1 0 0 1 76 159.751)" class="st2">
-    <tspan x="0" y="0" class="st4 st7 st9">{{getLine.line1}}</tspan>
-    <tspan x="0" y="34.8" class="st4 st7 st9">{{getLine.line2}}</tspan>
-    <tspan x="0" y="69.6" class="st4 st7 st9">{{getLine.line3}}</tspan>
-    <tspan x="0" y="104.4" class="st4 st7 st9">{{getLine.line4}} </tspan>
-    <tspan x="0" y="139.2" class="st4 st7 st9">{{getLine.line5}}</tspan>
-    <tspan x="0" y="174" class="st4 st7 st9">{{getLine.line6}}</tspan></text>
+    {{#with getLine}}
+      <text id="text" transform="matrix(1 0 0 1 76 159.751)" class="st2">
+      <tspan x="0" y="0.0" class="st4 st7 st9">{{line1}}</tspan>
+      <tspan x="0" y="34.8" class="st4 st7 st9">{{line2}}</tspan>
+      <tspan x="0" y="69.6" class="st4 st7 st9">{{line3}}</tspan>
+      <tspan x="0" y="104.4" class="st4 st7 st9">{{line4}} </tspan>
+      <tspan x="0" y="139.2" class="st4 st7 st9">{{line5}}</tspan>
+      <tspan x="0" y="174.0" class="st4 st7 st9">{{line6}}</tspan></text>
+    {{/with}}
 
 </g>
 <g id="bench">
