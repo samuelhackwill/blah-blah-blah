@@ -1,6 +1,10 @@
 import './theDrawing.html';
 import './theDrawing.css';
 
+allBonhommes = []
+
+//suitable during other guy's answer : arrier, inquiet, brascroises, tetedanslesmains
+
 Template.theDrawing.onCreated(function theDrawingOnCreated() {
   // counter starts at 0
   this.counter = new ReactiveVar(0);
@@ -27,20 +31,23 @@ Template.theDrawing.onRendered(function(){
 
     setTimeout(function(){
       document.getElementById("date").innerHTML=place
-    },9000)
+    },7000)
 
     setTimeout(function(){
       document.getElementById("date").style.opacity=0
-    },13000)
+    },11000)
 
     setTimeout(function(){
       document.getElementById("text").style.opacity=1
-    },14000)
+    },13000)
 
-    allHiddenLayers = document.getElementsByClassName("st2")
-    for (var i = allHiddenLayers.length - 1; i >= 0; i--) {
-      allHiddenLayers[i].style.opacity = 1
-    }
+    // allHiddenLayers = document.getElementsByClassName("st2")
+    // for (var i = allHiddenLayers.length - 1; i >= 0; i--) {
+    //   allHiddenLayers[i].style.opacity = 1
+    // }
+
+    allBonhommes = document.getElementsByClassName("st13")
+
     document.getElementsByClassName("eventCatcher")[0].focus()
   })
 
@@ -52,7 +59,7 @@ Template.theDrawing.helpers({
 		return this.discussion.discussionParams[0][who.hash.arg+"Color"]
 	},
 
-  labelStyler(isItTheBigOne){
+  labelStyler(){
     index = Template.instance().counter.get();
 
     approxPixelLength = 0.7
@@ -85,41 +92,6 @@ Template.theDrawing.helpers({
     }
   },
 
-  labelShower(){
-    console.log(Template.instance().data.discussion.discussionParams.talkerName)
-    // is the listener big and is he talking?
-    // is the talker big and is he talking?
-    // else return display none.
-    // index = Template.instance().counter.get();
-
-    // console.log(document.getElementById("name").getBoundingClientRect().width)
-    // talkerTalking = Template.instance().data.discussion.discussionLines[index].isItTheTalker
-
-    // if (talkerTalking) {
-    //   if (sizeOfName > sizeOfSmallLabel - 20) {
-    //     console.log("talker is talking, talkername is big!")
-    //     return "display : contents;"
-    //   }else{
-    //     console.log("talker is talking, but he hasn't got a big name.")
-    //     return "display : none"
-    //   }
-    // }else{
-    //   if (sizeOfName > sizeOfSmallLabel - 20) {
-    //     console.log("listener is talking, talkername is big!")
-    //     return "display : contents;"
-    //   }else{
-    //     console.log("listener is talking, but he hasn't got a big name.")
-    //     return "display : none"
-    //   }
-
-    // }
-
-    //get number of letters of name and multiply into a scaleX, bam.
-    // only for small label.
-    return "transform: scaleX(.7); transform-box: fill-box;"
-
-  },
-	
 	wrapLine() {
     // this function's goal is to retrieve text and to split it in
     // one to six lines. One very long word breaks the wrapping.
@@ -210,15 +182,21 @@ Template.theDrawing.helpers({
 
 Template.theDrawing.events({
   "keyup" : function(e){
-
       if (e.keyCode==32) {
       e.preventDefault();
 
+      for (var i = allBonhommes.length - 1; i >= 0; i--) {
+        allBonhommes[i].style.opacity=0
+      }
+
+      var targetBonhommeName = allBonhommes[Math.floor(Math.random()*allBonhommes.length)].id;
+      document.getElementById(targetBonhommeName).style.opacity=1
+
       if (!hasItStarted) {
         hasItStarted = true
-        document.getElementById("bulle").style.opacity=1
-        document.getElementById("name").style.opacity=1
         document.getElementById("smalllabel").style.opacity=1
+        document.getElementById("name").style.opacity=1
+        document.getElementById("bulle").style.opacity=1
       }
 
       index = Template.instance().counter.get()
