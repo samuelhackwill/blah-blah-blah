@@ -8,6 +8,7 @@ import { MockDiscussions } from '../../api/discussions/discussions.js';
 
 import { invalidKeys } from '../layouts/body/body.js'
 import { updateImminent } from '../layouts/body/body.js'
+import { FlowRouter } from 'meteor/ostrio:flow-router-extra';
 
 Template.conversationEditor.onCreated(function(){
 
@@ -179,13 +180,16 @@ Template.conversationEditor.events({
 	},
 
 	"click .save":function(e){
-		// console.log(this.discussionLinesData)
-		// console.log(e.target.previousElementSibling.value)
+		document.getElementsByClassName("save")[0].style.pointerEvents = "none"
+		document.getElementsByClassName("save")[0].innerHTML = "chargement..."
 
-		// console.log(MockDiscussions.find({}).fetch()[0])
+		setTimeout(() => {			
+			Meteor.call("makeNewDiscussion", e.target.previousElementSibling.value, MockDiscussions.find({}).fetch()[0])
+			Meteor.call("insertBunchOfNewLines", e.target.previousElementSibling.value, this.discussionLinesData)
+		
+			FlowRouter.go('edit', {titleOfDiscussion: e.target.previousElementSibling.value});		
+		},1000)
 
-		Meteor.call("makeNewDiscussion", e.target.previousElementSibling.value, MockDiscussions.find({}).fetch()[0])
-		Meteor.call("insertBunchOfNewLines", e.target.previousElementSibling.value, this.discussionLinesData)
 	}
 
 

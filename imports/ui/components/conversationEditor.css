@@ -54,7 +54,7 @@
 	flex-grow: 1;
 	margin: 25px;
 	padding: 10px;
-	font-family: PicNic, sans-serif;
+	font-family: ClearSans, sans-serif;
 	font-size: large;
 }
 
@@ -74,8 +74,52 @@
 
 .addTextContainer{
 	display: flex;
-	margin-bottom: 200px;
 }
 
 .addTextButton{
+  left: 50%;
+  position: relative;
+  transform: translateX(-50%);
+  font-size: 32px;
+  margin-top: 25px;
+  font-family: ClearSans, sans-serif;
+  background-color: white;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.addTextButton:hover{
+	background-color: grey;
+}
+
+.saveContainer{
+background-color: beige;
+font-size: large;
+margin-top: 20px;
+padding: 5px;
+}
+
+.saveContainer>input{
+	font-family: PicNic, sans-serif;
+	font-size: 32px;
+}
+
+.save{
+	font-size: 20px;
+  border-radius: 10px;
+	background-color: white;
+	color: black;
+  cursor: pointer;
+}
+
+.save:hover{
+	background-color: limegreen;
+}
+
+.delete{
+  cursor: pointer;
+}
+
+.delete:hover{
+	background-color: red;
 }

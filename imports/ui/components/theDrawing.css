@@ -36,3 +36,32 @@
 	background-color: black;
 	transition: opacity 5s;
 }
+
+#credits{
+	color: white;
+	position: fixed;
+	z-index: 9999999999;
+	font-size: 20px;
+	left: 6%;
+	bottom: 6%;
+	opacity: 0;
+}
+
+#credits > p{
+	margin : 0px
+}
+
+#credits > p > a:link{
+	color: grey;
+}
+#credits > p > a:visited{
+	color: grey;
+}
+/*
+.marielle{
+	font-family: PicNic;
+}*/
+
+.back{
+	color: red !important;
+}

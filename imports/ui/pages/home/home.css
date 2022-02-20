@@ -1,10 +1,47 @@
-#homeBody{
-	position: absolute;
-	top: 0px;
-	left: 0px;
+.homeContainer{
+	font-family: ClearSans, sans-serif;
 	width: 100%;
 	height: 100%;
-
+	position: fixed;
+	top: 0px;
+	left: 0px;
 	background-color: black;
-	transition: background-color 2s;
+	font-size: 16px;
+	overflow-x: scroll;
 }
+
+.homeColumn{
+	position: absolute;
+	z-index: 10000;
+	left: 6%;
+	top: 13%;
+	height: 100%;
+}
+
+.homeColumn > div{
+	width: 600px;
+	margin-bottom: 40px;
+	color: white;
+}
+
+.linkContainer{
+	font-family: PicNic, sans-serif;
+	font-size: 38px;
+}
+
+.linkInfo{
+	font-family: ClearSans, sans-serif;
+	font-size: 20px;
+}
+
+.linkContainer > a:link{
+	color: grey;
+}
+.linkContainer > a:visited{
+	color: grey;
+}
+
+/*.linkContainer > a:hover{
+	color: blue!important;
+}
+*/

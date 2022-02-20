@@ -12,6 +12,10 @@
 
 html{
     font-display: swap;
-	font-family: ClearSans, sans-serif;
-    background-color: #fff3f3;
+    font-family: ClearSans, sans-serif;
+    background-color: black;
+}
+
+body{
+  margin: 0px;
 }

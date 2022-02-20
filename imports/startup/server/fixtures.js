@@ -39,7 +39,7 @@ Meteor.startup(() => {
     console.log("Discussions is empty!")
 
     Discussions.insert({      
-      titleOfDiscussion : "les chiens",
+      titleOfDiscussion : "Exemple (c'est pas une vraie discussion)",
       talkerName : "Alice",
       listenerName : "Bob",
       talkerColor : "AliceBlue",
@@ -57,7 +57,7 @@ Meteor.startup(() => {
 
     for (var i = 0; i < lesChiens.length; i++) {
       DiscussionLines.insert({      
-        belongsToDiscussionNamed : "les chiens",
+        belongsToDiscussionNamed : "Exemple (c'est pas une vraie discussion)",
         isItTheTalker : lesChiens[i].talker,
         lineContent : lesChiens[i].lineContent,
         imgId : 1,

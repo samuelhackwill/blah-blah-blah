@@ -1,7 +1,22 @@
 .newBodyContainer{
 }
 
+#newBody{
+	background-color: lightgray;
+	padding: 8px;
+	padding-bottom: 200px;
+}
+
 .pageTitle{
 	font-family: PicNic;
 	margin-left: 20px;
+}
+
+.saveContainer{
+
+}
+
+.save{
+	background-color: green;
+	color: white;
 }

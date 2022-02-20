@@ -23,11 +23,11 @@
 	 				</div>
 					<textarea oninput='this.style.height = ""; this.style.height = this.scrollHeight - 20 + "px";' class="speechBalloon" type="textArea" value="{{lineContent}}" maxlength="250" onfocus="this.select()"></textarea>
 	 			</div>
-
+<!-- 
 	 			<div class="drawingPreview" style="{{_style arg='drawing'}};">
 	 				<img src="/img/test.png" style="{{_style arg='drawingChild'}}">
 	 			</div>
-
+ -->
 
 	 			<div class="talkerSPeechLinePlaceholder" style="{{_style arg='placeHolder3'}};">
 	 			</div>
@@ -38,14 +38,16 @@
 		<div class="addTextContainer">
 			<button class="addTextButton">Ajouter une ligne de dialogue!</button>
 
-			{{#if isItEditingView}}
-			{{else}}
-			<div class="saveContainer">
-				<input type="text" name="newDiscussionName">
-				<button maxlength="42" class="save">Sauvegarder</button>
-			</div>
-			{{/if}}
 		</div>
+
+		{{#if isItEditingView}}
+		{{else}}
+		<div class="saveContainer">
+			<span> Nom de la conversation : </span>
+			<input type="text" maxlength="70" name="newDiscussionName">
+			<button class="save">Sauvegarder</button>
+		</div>
+		{{/if}}
 
 	</div>
 </template>

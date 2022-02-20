@@ -1,5 +1,21 @@
 <template name="App_home">
-  <div id="homeBody">
-    {{> theDrawing}}
-  </div>
+
+<div class="homeContainer">
+	<div class="homeColumn">
+
+		<div>
+			Bienvenue sur cette archive de conversations. Quand vous verrez les deux personnages assis sur un banc, appuyez sur la barre espace de votre ordinateur pour progresser dans le dialogue.
+		</div>
+
+
+		{{#with discussion}}
+			{{#each discussionParams}}
+				<div class="linkContainer">
+					<a href="/read/{{titleOfDiscussion}}" onmouseover = "this.style.color = '{{talkerColor}}'" onmouseout  = "this.style.color = 'grey'"> <span style="color: {{talkerColor}};">{{titleOfDiscussion}}</span> -<span class="linkInfo"> {{date}} - {{place}} </span></a>
+				</div>
+			{{/each}}
+		{{/with}}
+	</div>
+</div>
+
 </template>

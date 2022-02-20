@@ -32,9 +32,8 @@
 
 .inputBlock>input{
 	margin-left: 1%;
-	flex-grow: 1;
 	font-family: PicNic;
-	font-size: x-large;
+	font-size: xx-large;
 }
 
 .inputBlock>input::placeholder{

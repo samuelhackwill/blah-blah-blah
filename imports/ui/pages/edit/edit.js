@@ -3,7 +3,6 @@ import './edit.css';
 
 import '../../components/conversationParams.js';
 import '../../components/conversationEditor.js';
-import '../../components/conversationSaver.js';
 
 import { ReactiveVar } from 'meteor/reactive-var'
 

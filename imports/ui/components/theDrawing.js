@@ -8,8 +8,8 @@ allListeners = []
 // this is to class the drawings by usage : some of these drawings 
 // cannot be used when the listener or the talker talks because their mouth
 // is closed. simple
-silenttalker = ["arrier", "acoude", "inquiet", "brascroises", "tetedanslesmains"]
-openMouthtalker = ["cote", "shruggy", "arrier", "poing", "exhilarated", "touche", "acoude", "brasouverts", "tetedanslesmains", "enlair", "inquiet", "tourne"]
+silenttalker = ["arrier", "inquiet", "brascroises", "tetedanslesmains"]
+openMouthtalker = ["cote", "shruggy", "arrier", "poing", "exhilarated", "touche", "acoude", "brasouverts", "enlair", "inquiet", "tourne"]
 silentlistener = ["listenerthinksmore", "listener", "listenertourne", "listenerleg"]
 openMouthlistener = ["listenertourparle", "listenerparle"]
 
@@ -40,26 +40,22 @@ Template.theDrawing.onCreated(function theDrawingOnCreated() {
 Template.theDrawing.onRendered(function(){
   $(document).ready(function() {
     
-    autoEventsHandle.e1 = setTimeout(function(){
--      introEvents(1)    
-    },1000)
+//     autoEventsHandle.e1 = setTimeout(function(){
+// -      introEvents(1)    
+//     },1000)
 
-    autoEventsHandle.e2 = setTimeout(function(){
--      introEvents(2)    
-    },4000)
+//     autoEventsHandle.e2 = setTimeout(function(){
+// -      introEvents(2)    
+//     },4000)
 
     autoEventsHandle.e3 = setTimeout(function(){
 -      introEvents(3)    
-    },7000)
+    },0)
 
     autoEventsHandle.e4 = setTimeout(function(){
 -      introEvents(4)    
-    },12000)
+    },5000)
 
-    // allHiddenLayers = document.getElementsByClassName("st2")
-    // for (var i = allHiddenLayers.length - 1; i >= 0; i--) {
-    //   allHiddenLayers[i].style.opacity = 1
-    // }
 
     for (var i = document.getElementsByClassName("st13").length - 1; i >= 0; i--) {
       allBonhommes.push(document.getElementsByClassName("st13")[i].id)
@@ -80,8 +76,8 @@ Template.theDrawing.onRendered(function(){
 
 Template.theDrawing.helpers({
 
-  tesst:function(){
-    console.log("tessst", this)
+  getNames:function(){
+    return {talkerName : Template.instance().data.discussion.discussionParams[0].talkerName}
   },
 
 	getColor:function(who){
@@ -214,15 +210,15 @@ Template.theDrawing.events({
       if (e.keyCode==32) {
       e.preventDefault();
 
-      if (autoEventsCounter<5) {
-        // this is to bypass autoevents
-        // if someone starts pressing the spacebar too early
-        _target = "e"+autoEventsCounter
-        clearTimeout(autoEventsHandle[_target])
-        console.log("clearing ", _target, "counter now", autoEventsCounter)
-        introEvents([autoEventsCounter])
-        return
-      }
+      // if (autoEventsCounter<5) {
+      //   // this is to bypass autoevents
+      //   // if someone starts pressing the spacebar too early
+      //   _target = "e"+autoEventsCounter
+      //   clearTimeout(autoEventsHandle[_target])
+      //   console.log("clearing ", _target, "counter now", autoEventsCounter)
+      //   introEvents([autoEventsCounter])
+      //   return
+      // }
 
 
         index = Template.instance().counter.get()
@@ -238,11 +234,14 @@ Template.theDrawing.events({
           // to crossed arms & fade to black.
           console.log("END OF TEXT")
           document.getElementById("shutter").style.display="block"
+          document.getElementsByClassName("eventCatcher")[0].style.display="none"
           
           document.getElementById("smalllabel").style.opacity=0
           document.getElementById("name").style.opacity=0
           document.getElementById("bulle").style.opacity=0
           document.getElementById("text").style.opacity=0
+
+          document.getElementById("credits").style.opacity=1
 
           talkingPeepChange("bothSilence", null)
 
@@ -340,3 +339,13 @@ _arrayName = silentOrOpenMouth+who
 
 
 }
+
+// texte intro
+
+
+// texte outro
+
+// nousparlions.com a été écrit en février 2022 par Samuel Hackwill,
+// et testé pour la première fois par les artistes de l'Amicale (Lille) 
+// & de la Serre (Montréal) pendant le cabaret de curiosités 2022, 
+// au Phénix, scène nationale de Valenciennes.

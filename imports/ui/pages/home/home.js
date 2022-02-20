@@ -1,3 +1,8 @@
 import './home.html';
 import './home.css';
-import '../../components/theDrawing.js';
+
+import { Discussions } from '../../../api/discussions/discussions.js';
+
+Template.App_home.onCreated(function() {
+	console.log(this)
+})

@@ -17,8 +17,8 @@ const mock = [
 
     MockDiscussions.insert({      
       titleOfDiscussion : "mockDiscussion",
-      talkerName : "Une première personne",
-      listenerName : "Une seconde personne",
+      talkerName : "Une personne",
+      listenerName : "Une autre personne",
       talkerColor : "Cyan",
       listenerColor : "Gold",
       date : theDate,
