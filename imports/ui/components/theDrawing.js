@@ -244,6 +244,8 @@ Template.theDrawing.events({
           document.getElementById("bulle").style.opacity=0
           document.getElementById("text").style.opacity=0
 
+          talkingPeepChange("bothSilence", null)
+
           setTimeout(function(){
             document.getElementById("shutter").style.opacity=1
           },2000)
@@ -311,6 +313,20 @@ talkingPeepChange = function(who, silentOrOpenMouth){
 
 // expected who : "listener" OR "talker"
 // expected silentOrOpenMouth : "silent" OR "openMouth"
+
+  if (who=="bothSilence") {
+    for (var i = document.getElementsByClassName("listener").length - 1; i >= 0; i--) {
+      document.getElementsByClassName("listener")[i].style.opacity=0
+    }
+
+    for (var i = document.getElementsByClassName("talker").length - 1; i >= 0; i--) {
+      document.getElementsByClassName("talker")[i].style.opacity=0
+    }
+
+    document.getElementById("brascroises").style.opacity=1
+    document.getElementById("listener").style.opacity=1
+    return
+  }
 
 _arrayName = silentOrOpenMouth+who
 
