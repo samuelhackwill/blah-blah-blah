@@ -1,16 +1,28 @@
 import './theDrawing.html';
 import './theDrawing.css';
 
-allBonhommes = []
+allBonhommes = ["listener", "brascroises"] // a in onRendered is responsible for adding the rest
+allTalkers = []
+allListeners = []
 
-//suitable during other guy's answer : arrier, inquiet, brascroises, tetedanslesmains
+// this is to class the drawings by usage : some of these drawings 
+// cannot be used when the listener or the talker talks because their mouth
+// is closed. simple
+silentTalker = ["arrier", "acoude", "inquiet", "brascroises", "tetedanslesmains"]
+openMouthTalker = ["cote", "shruggy", "arrier", "poing", "exhilarated", "touche", "acoude", "brasouverts", "tetedanslesmains", "enlair", "inquiet", "tourne"]
+silentListener = ["listenerthinksmore", "listener", "listenertourne", "listenerleg"]
+openMouthListener = ["listenertourparle", "listenerparle", "listenerthinksmore"]
+
+// this variable is used to record who has talked last : we need this
+// because we don't want to change the illustration every time the spacebar
+// is pressed, but only when it's a new talker talking.
+lastTalkingPeepWasTalker = undefined
 
 Template.theDrawing.onCreated(function theDrawingOnCreated() {
   // counter starts at 0
   this.counter = new ReactiveVar(0);
   place = this.data.discussion.discussionParams[0].place
   // setTimeout(() => {this.counter.set(this.counter.get() + 1)}, 2.0*1000)
-  hasItStarted = false
 
   sizeOfName = 0
   sizeOfSmallLabel = 30
@@ -46,7 +58,17 @@ Template.theDrawing.onRendered(function(){
     //   allHiddenLayers[i].style.opacity = 1
     // }
 
-    allBonhommes = document.getElementsByClassName("st13")
+    for (var i = document.getElementsByClassName("st13").length - 1; i >= 0; i--) {
+      allBonhommes.push(document.getElementsByClassName("st13")[i].id)
+    }
+
+    for (var i = document.getElementsByClassName("listener").length - 1; i >= 0; i--) {
+      allListeners.push(document.getElementsByClassName("listener")[i])
+    }
+
+    for (var i = document.getElementsByClassName("talker").length - 1; i >= 0; i--) {
+      allTalkers.push(document.getElementsByClassName("talker")[i])
+    }
 
     document.getElementsByClassName("eventCatcher")[0].focus()
   })
@@ -185,32 +207,99 @@ Template.theDrawing.events({
       if (e.keyCode==32) {
       e.preventDefault();
 
-      for (var i = allBonhommes.length - 1; i >= 0; i--) {
-        allBonhommes[i].style.opacity=0
-      }
 
-      var targetBonhommeName = allBonhommes[Math.floor(Math.random()*allBonhommes.length)].id;
-      document.getElementById(targetBonhommeName).style.opacity=1
+        // for (var i = allBonhommes.length - 1; i >= 0; i--) {
+        //   // first hide EVERYONNNNE
+        //   document.getElementById(allBonhommes[i]).style.opacity=0
+        // }
 
-      if (!hasItStarted) {
-        hasItStarted = true
-        document.getElementById("smalllabel").style.opacity=1
-        document.getElementById("name").style.opacity=1
-        document.getElementById("bulle").style.opacity=1
-      }
 
-      index = Template.instance().counter.get()
-      endOfText = Template.instance().data.discussion.discussionLines.length-1
 
-      // console.log(Template.instance().data.discussion.discussionLines)
+        index = Template.instance().counter.get()
+        endOfText = Template.instance().data.discussion.discussionLines.length-1
+        isItTheTalker = Template.instance().data.discussion.discussionLines[index+1].isItTheTalker
+        console.log("is it the talker?", isItTheTalker)
 
-      if (index<endOfText) {
-        Template.instance().counter.set(index+1)
-      }else{
-        console.log("END OF TEXT")
-        document.getElementById("homeBody").style.backgroundColor="black"
 
-      }
+        isItTheTalker ? lastTalkingPeepId = "brascroises" : lastTalkingPeepId = "listener"
+
+        if (index<endOfText) {
+          // we want to increment the counter every time the spacebar
+          // is pressed to get new dialog lines
+          Template.instance().counter.set(index+1)
+        }else{
+          // if we're at the end of the text, reset both peeps
+          // to crossed arms & fade to black.
+          console.log("END OF TEXT")
+          document.getElementById("homeBody").style.backgroundColor="black"
+          return
+        }
+
+        if (lastTalkingPeepWasTalker == undefined) {
+          // during the first keypress we want to do specific stuff
+          document.getElementById("smalllabel").style.opacity=1
+          document.getElementById("name").style.opacity=1
+          document.getElementById("bulle").style.opacity=1
+        }
+
+        if (lastTalkingPeepId != undefined) {
+          console.log("hiding ", lastTalkingPeepId)
+          document.getElementById(lastTalkingPeepId).style.opacity=0
+        }
+
+        if (isItTheTalker == true) {
+          // if the talker's currently talking, we either want 
+          // to IMMEDIATELY change its image if it was the other guy
+          // talking, or change its image at random? idk.
+          // also what might be funny is that the talker lags
+          // some time after having been interupted when he's been
+          // talking for a very long time. easy with a settimeout
+          if (lastTalkingPeepWasTalker == true) {
+            console.log("TALKER was talking and is still talking!")
+            // so as we said, if last person talking was talker, 
+            // we're not necessicarily going to change the image. 
+
+          }else{
+            // if last person talking was the listener though,
+            // we want to immediately change the image to make it
+            // clear that the talker is now talking. 
+            var changeTalkerTo = openMouthTalker[Math.floor(Math.random()*openMouthTalker.length)];
+            console.log("TALKER CHANGE", changeTalkerTo)
+            document.getElementById(changeTalkerTo).style.opacity=1
+
+            var changeListenerTo = silentListener[Math.floor(Math.random()*silentListener.length)];
+            console.log("TALKER CHANGE", changeListenerTo)
+            document.getElementById(changeListenerTo).style.opacity=1
+
+            lastTalkingPeepWasTalker = true
+            lastTalkingPeepId = changeTalkerTo
+
+          }
+          return
+        }else{
+          // if it's the listener who's talking, we're
+          // applying the same logic : immediately change image
+          // if the last talker was NOT the listener,
+          // and maybe change if he was already talking.
+          if (lastTalkingPeepWasTalker == true) {
+            // immediately change imge
+            var changeTalkerTo = silentTalker[Math.floor(Math.random()*silentTalker.length)];
+            console.log("LISTENER CHANGE ", changeTalkerTo)
+            document.getElementById(changeTalkerTo).style.opacity=1
+
+            var changeListenerTo = openMouthListener[Math.floor(Math.random()*openMouthListener.length)];
+            console.log("LISTENER CHANGE ", changeListenerTo)
+            document.getElementById(changeListenerTo).style.opacity=1
+            lastTalkingPeepWasTalker = false
+            lastTalkingPeepId = changeListenerTo
+
+          }else{
+            console.log("LISTENER was talking and is still talking!")
+            // maybe change image.
+
+          }
+          return
+        }
 
     }
   }
