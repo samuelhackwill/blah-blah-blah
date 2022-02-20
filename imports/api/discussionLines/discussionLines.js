@@ -7,7 +7,7 @@ export const MockDiscussionLines = new Mongo.Collection(null)
 export const DiscussionLinesSchema = new SimpleSchema({
 	belongsToDiscussionNamed : {
 		type : String,
-		max : 42
+		max : 70
 	},		
 	isItTheTalker : {
 		type : Boolean,
