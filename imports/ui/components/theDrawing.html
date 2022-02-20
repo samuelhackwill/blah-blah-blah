@@ -1,6 +1,12 @@
 <template name="theDrawing">
 
-    <input type="text" class="eventCatcher">
+
+
+ <div id="shutter">
+   <div id="date">{{getDate}}</div>
+ </div>
+
+  <input type="text" class="eventCatcher">
 <!--   
   this here is a jolly good hack to enable events on the whole page.
   (we want to register when a keystrooke is pressed at any time, 
@@ -385,8 +391,6 @@
   </g>
   <rect x="89" y="56.7" class="st6" width="664" height="39.3"/>
   <text id="name" transform="matrix(1 0 0 1 89 79.9316)" class="st3 st8">{{speechballoonLabelName}}</text>
-  <rect x="89" y="56.7" class="st6" width="664" height="39.3"/>
-  <text id="date" transform="matrix(1 0 0 1 89 79.9316)" class=" st8 st3">{{getDate}}</text>
   <rect x="76" y="138.7" class="st6" width="560" height="267.3"/>
 
     {{#with wrapLine}}

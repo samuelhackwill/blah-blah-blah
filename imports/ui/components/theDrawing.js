@@ -27,31 +27,35 @@ Template.theDrawing.onCreated(function theDrawingOnCreated() {
   sizeOfName = 0
   sizeOfSmallLabel = 30
 
+  autoEventsHandle = {}
+  autoEventsCounter = 1
+
   if(Template.instance().data.discussion.discussionParams[0].listenerName.length>7) isListenerNameBig = true
   if(Template.instance().data.discussion.discussionParams[0].talkerName.length>7) isTalkerNameBig = true
 
-  Template.instance().data.discussion.discussionLines.unshift({lineContent:"(Pouvez-vous appuyer sur la barre espace s'il vous plaît?)"})
+
+  Template.instance().data.discussion.discussionLines.unshift({lineContent:""})
 
 });
 
 Template.theDrawing.onRendered(function(){
   $(document).ready(function() {
     
-    setTimeout(function(){
-      document.getElementById("date").style.opacity=1
-    },2000)
+    autoEventsHandle.e1 = setTimeout(function(){
+-      introEvents(1)    
+    },1000)
 
-    setTimeout(function(){
-      document.getElementById("date").innerHTML=place
+    autoEventsHandle.e2 = setTimeout(function(){
+-      introEvents(2)    
+    },4000)
+
+    autoEventsHandle.e3 = setTimeout(function(){
+-      introEvents(3)    
     },7000)
 
-    setTimeout(function(){
-      document.getElementById("date").style.opacity=0
-    },11000)
-
-    setTimeout(function(){
-      document.getElementById("text").style.opacity=1
-    },13000)
+    autoEventsHandle.e4 = setTimeout(function(){
+-      introEvents(4)    
+    },12000)
 
     // allHiddenLayers = document.getElementsByClassName("st2")
     // for (var i = allHiddenLayers.length - 1; i >= 0; i--) {
@@ -207,6 +211,16 @@ Template.theDrawing.events({
       if (e.keyCode==32) {
       e.preventDefault();
 
+      if (autoEventsCounter<5) {
+        // this is to bypass autoevents
+        // if someone starts pressing the spacebar too early
+        _target = "e"+autoEventsCounter
+        clearTimeout(autoEventsHandle[_target])
+        console.log("clearing ", _target, "counter now", autoEventsCounter)
+        introEvents([autoEventsCounter])
+        return
+      }
+
 
         // for (var i = allBonhommes.length - 1; i >= 0; i--) {
         //   // first hide EVERYONNNNE
@@ -240,6 +254,7 @@ Template.theDrawing.events({
           document.getElementById("smalllabel").style.opacity=1
           document.getElementById("name").style.opacity=1
           document.getElementById("bulle").style.opacity=1
+          document.getElementById("text").style.opacity=1
         }
 
         if (lastTalkingPeepId != undefined) {
@@ -304,3 +319,26 @@ Template.theDrawing.events({
     }
   }
 });
+
+introEvents = function(number){
+  if (number==1) {
+    document.getElementById("date").style.opacity=1
+    autoEventsCounter = autoEventsCounter + 1
+
+  }  
+  if (number==2) {
+    document.getElementById("date").innerHTML=place
+    autoEventsCounter = autoEventsCounter + 1
+  }  
+
+  if (number==3) {
+    document.getElementById("shutter").style.opacity=0
+    autoEventsCounter = autoEventsCounter + 1
+  }
+
+  if (number==4) {
+    document.getElementById("shutter").style.display="none"
+    autoEventsCounter = autoEventsCounter + 1
+  }
+
+}
