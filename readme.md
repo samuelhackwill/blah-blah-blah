@@ -4,7 +4,7 @@ Ce site a pour objet l'archivage de conversations. Il prend son origine dans la 
 
 ## alpha.nousparlions.com/
 
-sur la page d'accueil du site, on trouve une liste de toutes les conversations qui ont été archivées. Sont affichées le nom de la conversation (en gros), dans la couleur du "parlant" (on expliquera ça un peu plus bas), puis les date & lieu où ont eu lieu ce micro-événement. Chaque ligne de texte est en fait un lien sur lequel on peut cliquer pour accéder au contenu de la conversation.
+sur la page d'accueil du site, on trouve une liste de toutes les conversations qui ont été archivées. Sont affichées : le nom de la conversation, la date et le lieu où s'est déroulé ce micro-événement. Chaque ligne de texte est en fait un lien sur lequel on peut cliquer pour accéder au contenu de la conversation.
 
 ![deux personnages sont assis sur un banc et s'apprêtent à avoir une conversation](https://github.com/samuelhackwill/blah-blah-blah/blob/master/public/img/UI/super.png)
 
@@ -18,7 +18,7 @@ Il est possible de modifier chaque conversation en utilisant exactement l'URL su
 
 alpha.nousparlions.com/edit/_nom de la conversation_
 
-et en remplaçant _nom de la conversation_ par le nom de la conversation que vous voulez modifier, en toutes lettres (avec les espaces ou autres caractères spéciaux si il y en a). Vous pouvez aussi tout simplement accéder à une conversation en passant par la page d'accueil, puis remplacer "/read/" par "/edit/" dans la barre d'adresse quand vous êtes dans le parc avec nos deux personnages, puis appuyer sur la touche "entrée" de votre clavier.
+et en remplaçant _nom de la conversation_ par le nom de la conversation que vous voulez modifier, en toutes lettres (avec les espaces ou autres caractères spéciaux si il y en a).
 
 NOTA BENE : vous remarquerez que tout simplement *aucune* authentification n'est nécessaire pour modifier n'importe quelle conversation de cette archive, on se base donc uniquement sur le civisme pour sécuriser le site dans sa version actuelle, et on se dit qu'on va pas tout de suite se faire attaquer par des armées de bots. 🙏
 
@@ -50,7 +50,7 @@ N'hésitez pas à aller consulter la conversation-exemple pour vous faire une id
 
 merci de bien vouloir vous prêter au jeu!
 
-vous pouvez maintenant vous rendre sur [le formulaire de création d'une nouvelle discussion](https://alpha.nousparlions.com/new/) afin de créer une nouvelle conversation. Si vous avez un doute sur la manière de remplir le formulaire, vous pouvez vous référer à la documentation ci-dessus ou vous pouvez appeler Samuel qui va essayer de garder son téléphone près de lui.
+vous pouvez maintenant vous rendre sur [le formulaire de création d'une nouvelle discussion](https://alpha.nousparlions.com/new/) afin de créer une nouvelle conversation. Si vous avez un doute sur la manière de remplir le formulaire, vous pouvez vous référer à la documentation [ci-dessus](#alphanousparlionscomnew) ou vous pouvez appeler Samuel qui va essayer de garder son téléphone près de lui.
 
 une fois que vous avez fini d'écrire votre conversation, sauvegardez-la (bouton blanc "sauvegarder" tout en bas), puis rendez-vous sur [la page d'accueil du site](https://alpha.nousparlions.com) et cliquer sur le nom de votre conversation pour regarder le résultat.
 
