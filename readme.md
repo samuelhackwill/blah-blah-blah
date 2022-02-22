@@ -55,7 +55,7 @@ vous pouvez maintenant vous rendre sur [le formulaire de création d'une nouvell
 une fois que vous avez fini d'écrire votre conversation, sauvegardez-la (bouton blanc "sauvegarder" tout en bas), puis rendez-vous sur [la page d'accueil du site](https://alpha.nousparlions.com) et cliquer sur le nom de votre conversation pour regarder le résultat.
 
 
-## considérations
+## considérations bonus
 
 Après plusieurs symposiums où nous (moi et mes camarades à l'amicale) avions organisé de sympathiques ballades-discussions thématiques, nous avions bien envie de trouver une solution pour partager ces conversations avec le groupe, et de leur donner une _forme_ au delà de celle qu'elle prennent pendant la courte durée de leur première existence.
 
