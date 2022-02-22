@@ -6,7 +6,7 @@ Ce site a pour objet l'archivage de conversations. Il prend son origine dans la 
 
 sur la page d'accueil du site, on trouve une liste de toutes les conversations qui ont été archivées. Sont affichées le nom de la conversation (en gros), dans la couleur du "talker" (on expliquera ça un peu plus bas), puis les date & lieu où ont eu lieu ce micro-évennement. Chaque ligne de texte est en fait un lien sur lequel on peut cliquer pour accéder au contenu de la conversation.
 
-[[https://github.com/samuelhackwill/blah-blah-blah/blob/master/public/img/UI/super.png]]
+![deux personnages sont assis sur un banc et s'apprêtent à avoir une conversation](https://github.com/samuelhackwill/blah-blah-blah/blob/master/public/img/UI/super.png)
 
 ## alpha.nousparlions.com/read/_nom de la conversation_
 
@@ -28,11 +28,11 @@ les modifications que l'on peut apporter à chaque conversation sont les mêmes 
 
 Cette page sert à faire entrer une nouvelle conversation dans les archives. 
 
-[[https://github.com/samuelhackwill/blah-blah-blah/blob/master/public/img/UI/UI%20top.png]]
+![image du haut de l'UI](https://github.com/samuelhackwill/blah-blah-blah/blob/master/public/img/UI/UI%20top.png)
 
 Dans la partie haute de la page, on peut modifier le nom du "parlant", qui est la personne ayant dirigé la conversation pendant la ballade, et le nom de l'"écoutant", qui a assisté la première personne dans sa réfléxion. À côté de chaque nom, il y a une petite pastille de couleur qui permet de modifier la couleur des deux personnages (la première pastille est aussi celle qui définit la couleur dans laquelle sera affiché la conversation sur la page d'accueil du site). À droite, on trouve un champ pour renseigner la date et le lieu où ont eu lieu la conversation.
 
-[[https://github.com/samuelhackwill/blah-blah-blah/blob/master/public/img/UI/UI%20milieu.png]]
+![image du milieu de l'UI](https://github.com/samuelhackwill/blah-blah-blah/blob/master/public/img/UI/UI%20milieu.png)
 
 En dessous, on trouve les "bulles" de dialogue à proprement parler. Trois types d'interaction sont possibles ici : on peut modifier le texte à l'intérieur de chaque bulle, cliquer sur le "label" coloré au dessus d'une bulle pour changer la personne qui parle (donc si on clique sur le label d'une ligne de dialogue dite par la personne parlante, ça deviendra une ligne de dialogue dite par la personne écoutante), et enfin on peut supprimer une bulle en cliquant sur le petit bouton avec une croix. That's it
 
@@ -44,15 +44,15 @@ Dans la partie la plus basse de la page, on trouve un bouton centré "Ajouter un
 
 vous venez de faire une ballade avec votre camarade. A priori, vous avez parlé d'un de vos projets, ou de vos prototypes, pendant 20 minutes. Votre partenaire vous a écouté patiemment, avec bienveillance, et enthousiasme. Puis vous avez échangé vos rôles.
 
-Il s'agit maintenant, si vous en avez envie, de synthétiser la conversation que vous venez d'avoir (celle où vous étiez la personne qui parlait le plus, pas quand vous écoutiez). Vous allez donc réécrire **et** vos prises de paroles, **et** éventuellement les questions ou interventions de votre partenaire. Vous n'avez pas d'obligation à être fidèle à tout prix à ce qui vient de se dérouler, au ton de votre conversation, ou même à son contenu : le but de l'exercice est d'écrire un dialogue, peu importe s'il correspond exactement à celui que vous venez d'avoir ou non.
+Il s'agit maintenant, si vous en avez envie, de synthétiser la conversation que vous venez d'avoir (celle où vous étiez la personne qui parlait le plus, pas quand vous écoutiez). Vous allez donc réécrire **et** vos prises de paroles, **et** éventuellement les questions ou interventions de votre partenaire. Vous n'avez pas d'obligation à être fidèle à tout prix à ce qui vient de se dérouler, au ton de votre conversation, ou même à son contenu : le but de l'exercice est avant tout d'écrire un dialogue, peu importe s'il correspond exactement à celui que vous venez d'avoir ou non.
 
-N'hésitez pas à aller consulter la conversation-exemple pour vous faire une idée de la manière dont fonctionne le dispositif ; mais en gros c'est simple : le texte que vous allez écrire sera interprété par deux personnages qui vont avoir des expressions corporelles aléatoires pendant qu'ils ou elles parlent. Donc le personnage qui joue l'artiste - vous - aura l'air tantôt super excité et joyeux, tantôt inquiet, tantôt indifférent. Peut-être que ça sera pertinent vu le texte, peut être que ça sera absurde, peut être que ça sera marrant, peut être que ça n'aura aucun sens. En fait on en sait rien puisqu'on a jamais encore testé ce site.
+N'hésitez pas à aller consulter la conversation-exemple pour vous faire une idée de la manière dont fonctionne le dispositif ; mais en gros c'est simple : le texte que vous allez écrire sera interprété par deux personnages qui vont avoir des expressions corporelles aléatoires pendant qu'ils ou elles parlent. Donc le personnage qui joue l'artiste - vous - aura l'air tantôt joyeux, tantôt inquiet, tantôt indifférent. Peut-être que ça sera pertinent vu le texte, peut être que ça sera absurde, peut être que ça sera marrant, peut être que ça n'aura aucun sens. En fait on en sait rien puisqu'on a jamais encore testé ce site.
 
 merci de bien vouloir vous prêter au jeu!
 
 vous pouvez maintenant vous rendre sur [le formulaire de création d'une nouvelle discussion](https://alpha.nousparlions.com/new/) afin de créer une nouvelle conversation. Si vous avez un doute sur la manière de remplir le formulaire, vous pouvez vous référer à la documentation ci-dessus ou vous pouvez appeller Samuel qui va essayer de garder son téléphone près de lui.
 
-une fois que vous avez fini d'écrire votre conversation, rendez-vous sur [la page d'accueil du site](https://alpha.nousparlions.com) pour regarder le résultat.
+une fois que vous avez fini d'écrire votre conversation, sauvegardez-la (bouton blanc "sauvegarder" tout en bas), puis rendez-vous sur [la page d'accueil du site](https://alpha.nousparlions.com) et cliquer sur le nom de votre conversation pour regarder le résultat.
 
 
 ## considérations
