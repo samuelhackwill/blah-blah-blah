@@ -4,13 +4,13 @@ Ce site a pour objet l'archivage de conversations. Il prend son origine dans la 
 
 ## alpha.nousparlions.com/
 
-sur la page d'accueil du site, on trouve une liste de toutes les conversations qui ont été archivées. Sont affichées le nom de la conversation (en gros), dans la couleur du "talker" (on expliquera ça un peu plus bas), puis les date & lieu où ont eu lieu ce micro-évennement. Chaque ligne de texte est en fait un lien sur lequel on peut cliquer pour accéder au contenu de la conversation.
+sur la page d'accueil du site, on trouve une liste de toutes les conversations qui ont été archivées. Sont affichées le nom de la conversation (en gros), dans la couleur du "parlant" (on expliquera ça un peu plus bas), puis les date & lieu où ont eu lieu ce micro-événement. Chaque ligne de texte est en fait un lien sur lequel on peut cliquer pour accéder au contenu de la conversation.
 
 ![deux personnages sont assis sur un banc et s'apprêtent à avoir une conversation](https://github.com/samuelhackwill/blah-blah-blah/blob/master/public/img/UI/super.png)
 
 ## alpha.nousparlions.com/read/_nom de la conversation_
 
-Quand on clique sur une conversation, le site nous redirige vers l'url /read suivie du nom de la conversation en toutes lettres. Quand on arrive sur cette page, apparaît un décor avec deux personnages assis sur un banc. Pour les faire rejouer leur discussion, il s'agit d'appuyer sur la barre espace de son clavier. Chaque pression sur la barre espace nous fait avancer d'une ligne dans leur dialogue. Il n'est pas possible de revenir en arrière au cours d'une discussion, mais rafraichir la page relance la conversation à son début.
+Quand on clique sur une conversation, le site nous redirige vers l'url /read suivie du nom de la conversation en toutes lettres. Quand on arrive sur cette page, apparaît un décor avec deux personnages assis sur un banc. Pour les faire rejouer leur discussion, il s'agit d'appuyer sur la barre espace de son clavier. Chaque pression sur la barre espace nous fait avancer d'une ligne dans leur dialogue. Il n'est pas possible de revenir en arrière au cours d'une discussion, mais rafraîchir la page relance la conversation à son début.
 
 ## alpha.nousparlions.com/edit/_nom de la conversation_
 
@@ -18,9 +18,9 @@ Il est possible de modifier chaque conversation en utilisant exactement l'URL su
 
 alpha.nousparlions.com/edit/_nom de la conversation_
 
-et en remplaçant ```_nom de la conversation_``` par le nom de la conversation que vous voulez modifier, en toutes lettres (avec les espaces ou autres caractères spéciaux si il y en a). Vous pouvez aussi tout simplement accéder à une conversation en passant par la page d'accueil, puis remplacer "/read/" par "/edit/" dans la barre d'adresse quand vous êtes dans le parc avec nos deux personnages, puis appuyer sur la touche "entrée" de votre clavier.
+et en remplaçant _nom de la conversation_ par le nom de la conversation que vous voulez modifier, en toutes lettres (avec les espaces ou autres caractères spéciaux si il y en a). Vous pouvez aussi tout simplement accéder à une conversation en passant par la page d'accueil, puis remplacer "/read/" par "/edit/" dans la barre d'adresse quand vous êtes dans le parc avec nos deux personnages, puis appuyer sur la touche "entrée" de votre clavier.
 
-NOTA BENE : vous remarquerez que tout simplement *aucune* authentification n'est nécéssaire pour modifier n'importe quelle conversation de cette archive, on se base donc uniquement sur le civisme pour sécuriser le site dans sa version actuelle, et on se dit qu'on va pas tout de suite se faire attaquer par des armées de bots. 🙏
+NOTA BENE : vous remarquerez que tout simplement *aucune* authentification n'est nécessaire pour modifier n'importe quelle conversation de cette archive, on se base donc uniquement sur le civisme pour sécuriser le site dans sa version actuelle, et on se dit qu'on va pas tout de suite se faire attaquer par des armées de bots. 🙏
 
 les modifications que l'on peut apporter à chaque conversation sont les mêmes que dans la page /new qui est décrite ci-dessous.
 
@@ -30,7 +30,7 @@ Cette page sert à faire entrer une nouvelle conversation dans les archives.
 
 ![image du haut de l'UI](https://github.com/samuelhackwill/blah-blah-blah/blob/master/public/img/UI/UI%20haut.png)
 
-Dans la partie haute de la page, on peut modifier le nom du "parlant", qui est la personne ayant dirigé la conversation pendant la ballade, et le nom de l'"écoutant", qui a assisté la première personne dans sa réfléxion. À côté de chaque nom, il y a une petite pastille de couleur qui permet de modifier la couleur des deux personnages (la première pastille est aussi celle qui définit la couleur dans laquelle sera affiché la conversation sur la page d'accueil du site). À droite, on trouve un champ pour renseigner la date et le lieu où ont eu lieu la conversation.
+Dans la partie haute de la page, on peut modifier le nom du "parlant", qui est la personne ayant dirigé la conversation pendant la ballade, et le nom de l'"écoutant", qui a assisté la première personne dans sa réflexion. À côté de chaque nom, il y a une petite pastille de couleur qui permet de modifier la couleur des deux personnages (la première pastille est aussi celle qui définit la couleur dans laquelle sera affiché la conversation sur la page d'accueil du site). À droite, on trouve un champ pour renseigner la date et le lieu où a eu lieu la conversation.
 
 ![image du milieu de l'UI](https://github.com/samuelhackwill/blah-blah-blah/blob/master/public/img/UI/UI%20milieu.png)
 
@@ -38,7 +38,7 @@ En dessous, on trouve les "bulles" de dialogue à proprement parler. Trois types
 
 ![image du bas de l'UI](https://github.com/samuelhackwill/blah-blah-blah/blob/master/public/img/UI/UI%20bot.png)
 
-Dans la partie la plus basse de la page, on trouve un bouton centré "Ajouter une ligne de dialogue!" avec un point d'exclamation enthousiaste (sans raison particulière), qui permet d'ajouter une bulle au dialogue. Enfin, tout en bas, il y a un ultime formulaire qui permet de renseigner le nom de la conversation (nom qui sera utilisé comme URL pour retrouver la conversation, et qui sera affiché sur la page d'accueil du site), et un bouton qui permet de sauvegarder la conversation au sein de l'archive (attention, il n'y a aucun mécanisme de cache sur le site pour le moment, ce qui fait que tout sera perdu si on ommet de cliquer sur ce bouton).
+Dans la partie la plus basse de la page, on trouve un bouton centré "Ajouter une ligne de dialogue!" avec un point d'exclamation enthousiaste (sans raison particulière), qui permet d'ajouter une bulle au dialogue. Enfin, tout en bas, il y a un ultime formulaire qui permet de renseigner le nom de la conversation (nom qui sera utilisé comme URL pour retrouver la conversation, et qui sera affiché sur la page d'accueil du site), et un bouton qui permet de sauvegarder la conversation au sein de l'archive (attention, il n'y a aucun mécanisme de cache sur le site pour le moment, ce qui fait que tout sera perdu si on omet de cliquer sur ce bouton).
 
 ## consignes
 
@@ -50,14 +50,14 @@ N'hésitez pas à aller consulter la conversation-exemple pour vous faire une id
 
 merci de bien vouloir vous prêter au jeu!
 
-vous pouvez maintenant vous rendre sur [le formulaire de création d'une nouvelle discussion](https://alpha.nousparlions.com/new/) afin de créer une nouvelle conversation. Si vous avez un doute sur la manière de remplir le formulaire, vous pouvez vous référer à la documentation ci-dessus ou vous pouvez appeller Samuel qui va essayer de garder son téléphone près de lui.
+vous pouvez maintenant vous rendre sur [le formulaire de création d'une nouvelle discussion](https://alpha.nousparlions.com/new/) afin de créer une nouvelle conversation. Si vous avez un doute sur la manière de remplir le formulaire, vous pouvez vous référer à la documentation ci-dessus ou vous pouvez appeler Samuel qui va essayer de garder son téléphone près de lui.
 
 une fois que vous avez fini d'écrire votre conversation, sauvegardez-la (bouton blanc "sauvegarder" tout en bas), puis rendez-vous sur [la page d'accueil du site](https://alpha.nousparlions.com) et cliquer sur le nom de votre conversation pour regarder le résultat.
 
 
 ## considérations
 
-Après plusieurs symposiums où nous (moi et mes camarades à l'amicale) avions organisé de sypathiques ballades-discussions thématiques, nous avions bien envie de trouver une solution pour partager ces conversations avec le groupe, et de leur donner une _forme_ au delà de celle qu'elle prennent pendant la courte durée de leur première existence.
+Après plusieurs symposiums où nous (moi et mes camarades à l'amicale) avions organisé de sympathiques ballades-discussions thématiques, nous avions bien envie de trouver une solution pour partager ces conversations avec le groupe, et de leur donner une _forme_ au delà de celle qu'elle prennent pendant la courte durée de leur première existence.
 
 La forme que ce site fabrique de manière générative est issue de la rencontre entre un texte, écrit par vous, et des dessins et du code, écrits par moi, éventuellement modulés par l'orchestration de l'opérateur de la barre espace qui visite le site.
 
