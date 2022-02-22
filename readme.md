@@ -36,7 +36,7 @@ Dans la partie haute de la page, on peut modifier le nom du "parlant", qui est l
 
 En dessous, on trouve les "bulles" de dialogue à proprement parler. Trois types d'interaction sont possibles ici : on peut modifier le texte à l'intérieur de chaque bulle, cliquer sur le "label" coloré au dessus d'une bulle pour changer la personne qui parle (donc si on clique sur le label d'une ligne de dialogue dite par la personne parlante, ça deviendra une ligne de dialogue dite par la personne écoutante), et enfin on peut supprimer une bulle en cliquant sur le petit bouton avec une croix. That's it
 
-[[https://github.com/samuelhackwill/blah-blah-blah/blob/master/public/img/UI/UI%20bot.png]]
+![https://github.com/samuelhackwill/blah-blah-blah/blob/master/public/img/UI/UI%20bot.png]
 
 Dans la partie la plus basse de la page, on trouve un bouton centré "Ajouter une ligne de dialogue!" avec un point d'exclamation enthousiaste (sans raison particulière), qui permet d'ajouter une bulle au dialogue. Enfin, tout en bas, il y a un ultime formulaire qui permet de renseigner le nom de la conversation (nom qui sera utilisé comme URL pour retrouver la conversation, et qui sera affiché sur la page d'accueil du site), et un bouton qui permet de sauvegarder la conversation au sein de l'archive (attention, il n'y a aucun mécanisme de cache sur le site pour le moment, ce qui fait que tout sera perdu si on ommet de cliquer sur ce bouton).
 
