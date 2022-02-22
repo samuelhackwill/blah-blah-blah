@@ -28,7 +28,7 @@ les modifications que l'on peut apporter à chaque conversation sont les mêmes 
 
 Cette page sert à faire entrer une nouvelle conversation dans les archives. 
 
-![image du haut de l'UI](https://github.com/samuelhackwill/blah-blah-blah/blob/master/public/img/UI/UI%20top.png)
+![image du haut de l'UI](https://github.com/samuelhackwill/blah-blah-blah/blob/master/public/img/UI/UI%20haut.png)
 
 Dans la partie haute de la page, on peut modifier le nom du "parlant", qui est la personne ayant dirigé la conversation pendant la ballade, et le nom de l'"écoutant", qui a assisté la première personne dans sa réfléxion. À côté de chaque nom, il y a une petite pastille de couleur qui permet de modifier la couleur des deux personnages (la première pastille est aussi celle qui définit la couleur dans laquelle sera affiché la conversation sur la page d'accueil du site). À droite, on trouve un champ pour renseigner la date et le lieu où ont eu lieu la conversation.
 
