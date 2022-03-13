@@ -121,12 +121,22 @@ Template.theDrawing.helpers({
     // this function's goal is to retrieve text and to split it in
     // one to six lines. One very long word breaks the wrapping.
 
+    // ALSO, the fact that we're using a different logic to limit
+    // insertions in the db (250 chars) is a problem. We would need
+    // to refactor the function in the conversationEditor to use
+    // the same logic, or to switch to a monospace font, etc.
+
 		index = Template.instance().counter.get();
 		getText = Template.instance().data.discussion.discussionLines[index].lineContent
     wrapCurrentWord = false
     wrapCounter = 0
     lineCounter = 1
-    lines = {line1:[], line2:[], line3:[], line4:[], line5:[], line6:[]}
+    lines = {line1:[], line2:[], line3:[], line4:[], line5:[], line6:[], 
+      // caution, these lines won't display!!!
+      // see issue #10.
+      line7:[],line8:[],line9:[],line10:[],line11:[],line12:[],line13:[]
+
+    }
 
     // letters and numbers should default to medium
     // non-word (spaces, punctuation, etc) should default to small.
@@ -135,6 +145,7 @@ Template.theDrawing.helpers({
 
     for (var z = 0 ; z < words.length; z++) {
       for (var i = 0 ; i < words[z].length; i++){
+        console.log(words[z][i])
         // FOR EVERY LETTER
         // increment counter, that's it
         if (words[z][i]== "w" || words[z][i]== "m"){
@@ -178,6 +189,14 @@ Template.theDrawing.helpers({
 
     }
 
+
+    // console.log("index :", index,
+    // "\n getText :", getText, 
+    // "\n wrapCurrentWord :", wrapCurrentWord, 
+    // "\n wrapCounter :", wrapCounter, 
+    // "\n lineCounter :", lineCounter, 
+    // "\n lines :", lines)
+
     return {
       line1:lines.line1.join(' '),
       line2:lines.line2.join(' '),
@@ -185,6 +204,9 @@ Template.theDrawing.helpers({
       line4:lines.line4.join(' '),
       line5:lines.line5.join(' '),
       line6:lines.line6.join(' ')
+      // we're not returning the other arrays because we 
+      // don't want text to overflow.
+
     }
   },
 
@@ -252,6 +274,7 @@ Template.theDrawing.events({
         }
 
         Template.instance().data.discussion.discussionLines[Template.instance().counter.get()].isItTheTalker ? currentTalker = "talker" : currentTalker = "listener"
+
 
         if (lastTalkingPeepWas == undefined) {
           // during the first keypress we want to do specific stuff
