@@ -134,12 +134,14 @@ Template.conversationEditor.events({
 
 	"click .addTextButton" : function(e){
 
+		currentDiscussion = document.getElementsByClassName("pageTitle")[0].innerHTML
+
 		currentIndex = this.discussionLinesData.length
 		_index = currentIndex + 1
 
 		if(areWeInTheEditingView()){
 			// this is executed by the component when it's in the /edit view
-			Meteor.call("insertNewLine", this.discussionLinesData[0].belongsToDiscussionNamed, _index)
+			Meteor.call("insertNewLine", currentDiscussion, _index)
 		}else{
 			// this is executed by the component when it's in the /new view
 
@@ -182,6 +184,9 @@ Template.conversationEditor.events({
 	},
 
 	"click .save":function(e){
+		// #18
+
+
 		document.getElementsByClassName("save")[0].style.pointerEvents = "none"
 		document.getElementsByClassName("save")[0].innerHTML = "chargement..."
 
