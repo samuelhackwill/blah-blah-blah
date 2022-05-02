@@ -68,7 +68,7 @@ Template.conversationParams.events({
 			if (areWeInTheEditingView()) {
 				Meteor.call('discussionParamChange', this.titleOfDiscussion, e.target.name, newValue[e.target.name])
 			}else{
-				MockDiscussions.update({titleOfDiscussion:this.titleOfDiscussion}, {$set:{[_target] : newValue[e.target.name]}})    
+				MockDiscussions.update({titleOfDiscussion:this.titleOfDiscussion}, {$set:{[e.target.name] : newValue[e.target.name]}})    
 			}
 		}, 3000)
 	}
