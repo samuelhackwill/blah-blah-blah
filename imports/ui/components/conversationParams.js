@@ -10,6 +10,8 @@ import { allCssNamedColors } from '../../api/discussions/methods.js';
 import { invalidKeys } from '../layouts/body/body.js'
 import { updateImminent } from '../layouts/body/body.js'
 
+newValue = {}
+
 Template.conversationParams.onCreated(function(){
 
 	console.log(this)
@@ -58,16 +60,16 @@ Template.conversationParams.events({
 			return
 		}
 
-		newValue = e.target.value
+		newValue[e.target.name] = e.target.value
 
 		clearTimeout(updateImminent[e.target.name])
 
 		updateImminent[e.target.name] = setTimeout(() => {
 			if (areWeInTheEditingView()) {
-				Meteor.call('discussionParamChange', this.titleOfDiscussion, e.target.name, newValue)
+				Meteor.call('discussionParamChange', this.titleOfDiscussion, e.target.name, newValue[e.target.name])
 			}else{
-				MockDiscussions.update({titleOfDiscussion:this.titleOfDiscussion}, {$set:{[_target] : newValue}})    
+				MockDiscussions.update({titleOfDiscussion:this.titleOfDiscussion}, {$set:{[_target] : newValue[e.target.name]}})    
 			}
-		}, 750)
+		}, 3000)
 	}
 })

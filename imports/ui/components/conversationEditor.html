@@ -21,7 +21,7 @@
 	 					<span class="{{peepName}}"> {{peepName}} </span> 
 		 				<button tabindex="-1" class="delete">x</button>
 	 				</div>
-					<textarea oninput='this.style.height = ""; this.style.height = this.scrollHeight - 20 + "px";' class="speechBalloon" type="textArea" value="{{lineContent}}" maxlength="250" onfocus="this.select()"></textarea>
+					<textarea id={{_id}} oninput='this.style.height = ""; this.style.height = this.scrollHeight - 20 + "px";' class="speechBalloon" type="textArea" value="{{lineContent}}" maxlength="250" onfocus="this.select()"></textarea>
 	 			</div>
 <!-- 
 	 			<div class="drawingPreview" style="{{_style arg='drawing'}};">

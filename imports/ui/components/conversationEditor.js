@@ -10,6 +10,8 @@ import { invalidKeys } from '../layouts/body/body.js'
 import { updateImminent } from '../layouts/body/body.js'
 import { FlowRouter } from 'meteor/ostrio:flow-router-extra';
 
+newContent = {}
+
 Template.conversationEditor.onCreated(function(){
 
 	console.log(this)
@@ -166,17 +168,17 @@ Template.conversationEditor.events({
 			return
 		}
 
-		newContent = e.target.value
+		newContent[e.target.id] = e.target.value
 
 		clearTimeout(updateImminent[this._id])
 
 		updateImminent[this._id] = setTimeout(() => {
 			if (areWeInTheEditingView()) {
-				Meteor.call('lineContentChange', this._id, newContent)
+				Meteor.call('lineContentChange', this._id, newContent[e.target.id])
 			}else{
-				MockDiscussionLines.update({_id:this._id}, {$set:{lineContent : newContent}})    
+				MockDiscussionLines.update({_id:this._id}, {$set:{lineContent : newContent[e.target.id]}})    
 			}
-		}, 750)
+		}, 3000)
 	},
 
 	"click .save":function(e){

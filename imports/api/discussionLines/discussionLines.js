@@ -13,6 +13,7 @@ export const DiscussionLinesSchema = new SimpleSchema({
 		type : Boolean,
 	},		
 	lineContent : {
+		trim : false,
 		type : String,
 		max: 250
 	},			
